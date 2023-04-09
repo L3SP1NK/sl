@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "jetbrains mono nf:size=14";
-static const char* normbgcolor  = "#0d0d0d";
-static const char* normfgcolor  = "#ffffff";
-static const char* selbgcolor   = "#1f1f1f";
-static const char* selfgcolor   = "#ffffff";
-static const char* urgbgcolor   = "#cc0000";
-static const char* urgfgcolor   = "#ffffff";
+static const char font[]        = "roboto:size=14";
+static const char* normbgcolor  = "grey";
+static const char* normfgcolor  = "black";
+static const char* selbgcolor   = "magenta";
+static const char* selfgcolor   = "black";
+static const char* urgbgcolor   = "red";
+static const char* urgfgcolor   = "white";
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const char titletrim[]   = "...";
@@ -20,8 +20,9 @@ static       Bool urgentswitch  = False;
  * then the current position is changed + newposition. If npisrelative
  * is False, then newposition is an absolute position.
  */
-static int  newposition   = 0;
-static Bool npisrelative  = False;
+
+static int  newposition   = 1;
+static Bool npisrelative  = True;
 
 #define SETPROP(p) { \
         .v = (char *[]){ "/bin/sh", "-c", \

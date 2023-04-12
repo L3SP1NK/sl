@@ -18,8 +18,7 @@ static Button buttons[] = {
     { ClkWinTitle,          0,              Button4,        focusstack,     {.i = +1 } },
 
     { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-    { ClkLtSymbol,          0,              Button4,        setlayout,      {0} },
-    { ClkLtSymbol,          0,              Button5,        togglefloating, {0} },
+    { ClkLtSymbol,          0,              Button2,        togglefloating, {0} },
 
     { ClkTagBar,            0,              Button1,        view,           {0} },
     { ClkTagBar,            0,              Button3,        toggleview,     {0} },

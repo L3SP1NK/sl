@@ -1,7 +1,7 @@
 /* commands */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *calendarcmd[]  = { "st", "-e", "calendar", NULL };
+static const char *calendarcmd[]  = { "st", "-e", "calcurse", NULL };
 static const char *killcmd[]  = { "xkill", NULL };
 static const char *clockcmd[]  = { "xclock", NULL };
 static const char *loadcmd[]  = { "xload", NULL };

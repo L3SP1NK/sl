@@ -6,5 +6,6 @@ static const Rule rules[] = {
   */
  /* class      instance    title       tags mask     isfloating   monitor */
  { "Onboard",  NULL,       NULL,       0,            1,           -1 },
+ { "xmessage", NULL,       NULL,       0,            1,           -1 },
 };
 

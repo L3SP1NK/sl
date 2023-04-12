@@ -47,13 +47,15 @@ static Key keys[] = {
     { ControlMask|Mod1Mask,         XK_End,    shiftboth,       {.i = +1 } },
 
     /* layout */
-    { MODKEY,                       XK_t,      setlayout,       {.v = &layouts[0]} },
-    { MODKEY,                       XK_f,      setlayout,       {.v = &layouts[1]} },
-    { MODKEY,                       XK_m,      setlayout,       {.v = &layouts[2]} },
-    { MODKEY,                       XK_Down,   setlayout,       {0} },
-    { MODKEY,                       XK_Up,     togglefloating,  {0} },
-    { MODKEY,                       XK_Prior,  incnmaster,      {.i = -1 } },
-    { MODKEY,                       XK_Next,   incnmaster,      {.i = +1 } },
+    { MODKEY|ShiftMask,                       XK_t,      setlayout,       {.v = &layouts[0]} },
+    { MODKEY|ShiftMask,                       XK_f,      setlayout,       {.v = &layouts[1]} },
+    { MODKEY|ShiftMask,                       XK_m,      setlayout,       {.v = &layouts[2]} },
+    { MODKEY|ShiftMask,                       XK_s,      setlayout,       {.v = &layouts[3]} },
+    { MODKEY|ShiftMask,                       XK_d,      setlayout,       {.v = &layouts[4]} },
+    { MODKEY,                                 XK_Down,   setlayout,       {0} },
+    { MODKEY,                                 XK_Up,     togglefloating,  {0} },
+    { MODKEY,                                 XK_Prior,  incnmaster,      {.i = -1 } },
+    { MODKEY,                                 XK_Next,   incnmaster,      {.i = +1 } },
 
     /* tags */
     { MODKEY,                       XK_agrave,  view,           {.ui = ~0 } },

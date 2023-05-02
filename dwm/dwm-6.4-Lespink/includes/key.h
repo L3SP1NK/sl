@@ -1,8 +1,8 @@
 /* key definitions */
 #define MODKEY Mod4Mask
+
 #define TAGKEYS(KEY,TAG) \
  { MODKEY,                         KEY,      view,           {.ui = 1 << TAG} }, \
- { MODKEY|ShiftMask,               KEY,      toggletag,      {.ui = 1 << TAG} }, \
  { MODKEY|ControlMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
  { MODKEY|ControlMask|ShiftMask,   KEY,      toggletag,      {.ui = 1 << TAG} },
 
@@ -12,7 +12,7 @@ static Key keys[] = {
     { ControlMask|Mod1Mask,         XK_q,      spawn,           {.v = killcmd } },
     { ControlMask,                  XK_Escape, spawn,           {.v = dmenucmd } },
     { ControlMask|Mod1Mask,         XK_t,      spawn,           {.v = termcmd } },
-    { MODKEY,                       XK_b,      togglebar,       {0} },
+    { MODKEY|ShiftMask,             XK_b,      togglebar,       {0} },
     { ControlMask,                  XK_q,      killclient,      {0} },
 
     /* audio */
@@ -27,6 +27,10 @@ static Key keys[] = {
     /* gaps */
     { MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
     { MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
+//    { MODKEY,                       XK_Add,    setgaps,          {.i = +5 } },
+    { MODKEY,                       XK_End,    setgaps,          {.i = +5 } },
+//    { MODKEY,                       XK_Subtract, setgaps,     {.i = -5 } },
+    { MODKEY,                       XK_KP_Subtract, setgaps,     {.i = -5 } },
     { MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
     { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 
@@ -60,6 +64,7 @@ static Key keys[] = {
     /* tags */
     { MODKEY,                       XK_agrave,  view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_agrave,  tag,            {.ui = ~0 } },
+    { MODKEY|ShiftMask,             XK_agrave,  tag,            {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_End,     tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_Home,    tagmon,         {.i = +1 } },
     TAGKEYS(                        XK_ampersand,              0)
@@ -71,6 +76,5 @@ static Key keys[] = {
     TAGKEYS(                        XK_egrave,                 6)
     TAGKEYS(                        XK_underscore,             7)
     TAGKEYS(                        XK_ccedilla,               8)
-    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    { MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
 };
-

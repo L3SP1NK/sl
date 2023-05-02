@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;    /* border pixel of windows */
+static const unsigned int borderpx  = 0;    /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 15, .gappx = 15};
 static const unsigned int snap      = 0;    /* snap pixel */
 
@@ -14,10 +14,10 @@ static const int showsystray                = 1;    /* 0 means no systray */
 static const int showbar    = 1;    /* 0 means no bar */
 static const int topbar     = 1;    /* 0 means bottom bar */
 
-static const char *fonts[]                  = { "roboto:size=14" };
-static const char dmenufont[]               = "roboto:size=14";
+static const char *fonts[]                  = { "jetbrains mono nf:size=14" };
+static const char dmenufont[]               = "jetbrains mono nf:size=14";
 
-#include "./includes/themes/dark-theme.h"
+#include "./includes/colors.h"
 #include "./includes/layout.h"
 #include "./includes/rule.h"
 #include "./includes/tag.h"

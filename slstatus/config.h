@@ -64,38 +64,13 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 
-//	{ entropy, "%s", NULL },
+	{ cpu_perc,		"· 󰻠 %s%%",	NULL },
 
-//	{ cpu_perc,		"{󰻠 %s%%",	NULL },
-//	{ run_command, "%s ",			"/home/lespink/.scripts/slstatus_temp", },
-//	{ run_command, "%s ",			"/home/lespink/.scripts/slstatus_cpu", },
-//	{ cpu_freq,		"󰻠 %shz",		NULL },
-//	{ run_command,	"%s",			"sensors|grep 'k10' -A2|grep 'temp1'|cut -d ':' -f 2|tr -d '+ '|cut -d 'C' -f 1" },
+	{ ram_perc,		" · 󰍛 %s%%",	NULL },
 
-//	{ ram_perc,		"|󰍛 %s%%}",	NULL },
-//	{ ram_used,		"󰍛 %s",		NULL },
+	{ disk_perc,	" · 󰋊 %s%%",	"/" },
 
-//	{ swap_perc,	"󱁋 %s%%",	NULL },
-//	{ swap_used,	" (%s)",		NULL },
-
-//	{ disk_perc,	" 󰋊 %s%%",	"/" },
-//	{ disk_used,	" (%s)",		"/" },
-
-//	{ netspeed_rx,	"󰛴 %s",		"eth0" },
-//	{ netspeed_tx,	" 󰳘 %s",		"eth0" },
-//
-//	{ netspeed_rx,	"󰛴 %s",		"wlan0" },
-//	{ netspeed_tx,	" 󰳘 %s",		"wlan0" },
-//
-//	{ netspeed_rx,	"󰛴 %s",		"lo" },
-//	{ netspeed_tx,	" 󰳘 %s",		"lo" },
-
-//	{ vol_perc,		" %s ",			"/dev/mixer" },
-//	{ run_command,	"  %s ",		"amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-
-
-//	{ datetime,		" 󰸗 %s ",		"%a %d %b, %H:%M" },
-	{ datetime,		" %s ",		"%a %d %b, %H:%M" },
-//	{ run_command, "%s ",			"nerdclock", }
-//	{ username,		" %s ",		NULL },
+	{ datetime,		" · 󰸗 %s",	"%a %d %b" },
+	{ run_command,	" · %s",		"nerdclock", },
+	{ datetime,		" %s ",		"%H:%M" }
 };

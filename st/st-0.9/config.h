@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "jetbrains mono nfm:pixelsize=18:antialias=true:autohint=true";
+static char *font = "firacode nerd font mono:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 8;
 
 /*
@@ -144,7 +144,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 6;
 
 /*
  * Default columns and rows numbers

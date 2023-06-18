@@ -27,10 +27,6 @@ static Key keys[] = {
     /* gaps */
     { MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
     { MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
-//    { MODKEY,                       XK_Add,    setgaps,          {.i = +5 } },
-    { MODKEY,                       XK_End,    setgaps,          {.i = +5 } },
-//    { MODKEY,                       XK_Subtract, setgaps,     {.i = -5 } },
-    { MODKEY,                       XK_KP_Subtract, setgaps,     {.i = -5 } },
     { MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
     { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 

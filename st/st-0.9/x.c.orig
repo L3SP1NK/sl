@@ -35,6 +35,7 @@ typedef struct {
 	void (*func)(const Arg *);
 	const Arg arg;
 	uint  release;
+	int  altscrn;  /* 0: don't care, -1: not alt screen, 1: alt screen */
 } MouseShortcut;
 
 typedef struct {
@@ -95,7 +96,6 @@ typedef struct {
 	Drawable buf;
 	GlyphFontSpec *specbuf; /* font spec buffer used for rendering */
 	Atom xembed, wmdeletewin, netwmname, netwmiconname, netwmpid;
-	Atom netwmstate, netwmfullscreen;
 	struct {
 		XIM xim;
 		XIC xic;
@@ -460,6 +460,7 @@ mouseaction(XEvent *e, uint release)
 	for (ms = mshortcuts; ms < mshortcuts + LEN(mshortcuts); ms++) {
 		if (ms->release == release &&
 		    ms->button == e->xbutton.button &&
+		    (!ms->altscrn || (ms->altscrn == (tisaltscr() ? 1 : -1))) &&
 		    (match(ms->mod, state) ||  /* exact or forced */
 		     match(ms->mod, state & ~forcemousemod))) {
 			ms->func(&(ms->arg));
@@ -762,25 +763,7 @@ xresize(int col, int row)
 	xclear(0, 0, win.w, win.h);
 
 	/* resize to new width */
-	xw.specbuf = xrealloc(xw.specbuf, col * sizeof(GlyphFontSpec));
-}
-
-void
-fullscreen(const Arg *arg)
-{
-	XEvent ev;
-
-	memset(&ev, 0, sizeof(ev));
-	
-	ev.xclient.type = ClientMessage;
-	ev.xclient.message_type = xw.netwmstate;
-	ev.xclient.display = xw.dpy;
-	ev.xclient.window = xw.win;
-	ev.xclient.format = 32;
-	ev.xclient.data.l[0] = 2; /* _NET_WM_STATE_TOGGLE */
-	ev.xclient.data.l[1] = xw.netwmfullscreen;
-
-	XSendEvent(xw.dpy, DefaultRootWindow(xw.dpy), False, SubstructureNotifyMask|SubstructureRedirectMask, &ev);
+	xw.specbuf = xrealloc(xw.specbuf, col * sizeof(GlyphFontSpec) * 4);
 }
 
 ushort
@@ -1226,7 +1209,7 @@ xinit(int cols, int rows)
 	XFillRectangle(xw.dpy, xw.buf, dc.gc, 0, 0, win.w, win.h);
 
 	/* font spec buffer */
-	xw.specbuf = xmalloc(cols * sizeof(GlyphFontSpec));
+	xw.specbuf = xmalloc(cols * sizeof(GlyphFontSpec) * 4);
 
 	/* Xft rendering context */
 	xw.draw = XftDrawCreate(xw.dpy, xw.buf, xw.vis, xw.cmap);
@@ -1265,9 +1248,6 @@ xinit(int cols, int rows)
 	XChangeProperty(xw.dpy, xw.win, xw.netwmpid, XA_CARDINAL, 32,
 			PropModeReplace, (uchar *)&thispid, 1);
 
-	xw.netwmstate = XInternAtom(xw.dpy, "_NET_WM_STATE", False);
-	xw.netwmfullscreen = XInternAtom(xw.dpy, "_NET_WM_STATE_FULLSCREEN", False);
-
 	win.mode = MODE_NUMLOCK;
 	resettitle();
 	xhints();
@@ -1286,7 +1266,7 @@ xinit(int cols, int rows)
 void
 xresetfontsettings(ushort mode, Font **font, int *frcflags)
 {
-  *font = &dc.font;
+	*font = &dc.font;
 	if ((mode & ATTR_ITALIC) && (mode & ATTR_BOLD)) {
 		*font = &dc.ibfont;
 		*frcflags = FRC_ITALICBOLD;
@@ -1314,6 +1294,7 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
 	FcFontSet *fcsets[] = { NULL };
 	FcCharSet *fccharset;
 	int i, f, length = 0, start = 0, numspecs = 0;
+	float cluster_xp = xp, cluster_yp = yp;
 	HbTransformData shaped = { 0 };
 
 	/* Initial values. */
@@ -1324,7 +1305,7 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
 		mode = glyphs[i].mode;
 
 		/* Skip dummy wide-character spacing. */
-		if (mode & ATTR_WDUMMY)
+		if (mode & ATTR_WDUMMY && i < (len - 1))
 			continue;
 
 		if (
@@ -1343,23 +1324,34 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
 
 			/* Shape the segment. */
 			hbtransform(&shaped, font->match, glyphs, start, length);
+			runewidth = win.cw * ((glyphs[start].mode & ATTR_WIDE) ? 2.0f : 1.0f);
+			cluster_xp = xp; cluster_yp = yp;
 			for (int code_idx = 0; code_idx < shaped.count; code_idx++) {
-				rune = glyphs[start + code_idx].u;
-				runewidth = win.cw * ((glyphs[start + code_idx].mode & ATTR_WIDE) ? 2.0f : 1.0f);
+				int idx = shaped.glyphs[code_idx].cluster;
 
-				if (glyphs[start + code_idx].mode & ATTR_WDUMMY)
+				if (glyphs[start + idx].mode & ATTR_WDUMMY)
 					continue;
+
+				/* Advance the drawing cursor if we've moved to a new cluster */
+				if (code_idx > 0 && idx != shaped.glyphs[code_idx - 1].cluster) {
+					xp += runewidth;
+					cluster_xp = xp;
+					cluster_yp = yp;
+					runewidth = win.cw * ((glyphs[start + idx].mode & ATTR_WIDE) ? 2.0f : 1.0f);
+				}
 
 				if (shaped.glyphs[code_idx].codepoint != 0) {
 					/* If symbol is found, put it into the specs. */
 					specs[numspecs].font = font->match;
 					specs[numspecs].glyph = shaped.glyphs[code_idx].codepoint;
-					specs[numspecs].x = xp + (short)shaped.positions[code_idx].x_offset;
-					specs[numspecs].y = yp + (short)shaped.positions[code_idx].y_offset;
-					xp += runewidth;
+					specs[numspecs].x = cluster_xp + (short)(shaped.positions[code_idx].x_offset / 64.);
+					specs[numspecs].y = cluster_yp - (short)(shaped.positions[code_idx].y_offset / 64.);
+					cluster_xp += shaped.positions[code_idx].x_advance / 64.;
+					cluster_yp += shaped.positions[code_idx].y_advance / 64.;
 					numspecs++;
 				} else {
 					/* If it's not found, try to fetch it through the font cache. */
+					rune = glyphs[start + idx].u;
 					for (f = 0; f < frclen; f++) {
 						glyphidx = XftCharIndex(xw.dpy, frc[f].font, rune);
 						/* Everything correct. */
@@ -1428,7 +1420,6 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
 					specs[numspecs].glyph = glyphidx;
 					specs[numspecs].x = (short)xp;
 					specs[numspecs].y = (short)yp;
-					xp += runewidth;
 					numspecs++;
 				}
 			}
@@ -1446,6 +1437,7 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
 		}
 	}
 
+	hbcleanup(&shaped);
 	return numspecs;
 }
 
@@ -1733,18 +1725,16 @@ xdrawline(Line line, int x1, int y1, int x2)
 	Glyph base, new;
 	XftGlyphFontSpec *specs = xw.specbuf;
 
-	numspecs = xmakeglyphfontspecs(specs, &line[x1], x2 - x1, x1, y1);
 	i = ox = 0;
-	for (x = x1; x < x2 && i < numspecs; x++) {
+	for (x = x1; x < x2; x++) {
 		new = line[x];
 		if (new.mode == ATTR_WDUMMY)
 			continue;
 		if (selected(x, y1))
 			new.mode ^= ATTR_REVERSE;
-		if (i > 0 && ATTRCMP(base, new)) {
-			xdrawglyphfontspecs(specs, base, i, ox, y1);
-			specs += i;
-			numspecs -= i;
+		if ((i > 0) && ATTRCMP(base, new)) {
+			numspecs = xmakeglyphfontspecs(specs, &line[ox], x - ox, ox, y1);
+			xdrawglyphfontspecs(specs, base, numspecs, ox, y1);
 			i = 0;
 		}
 		if (i == 0) {
@@ -1753,8 +1743,10 @@ xdrawline(Line line, int x1, int y1, int x2)
 		}
 		i++;
 	}
-	if (i > 0)
-		xdrawglyphfontspecs(specs, base, i, ox, y1);
+	if (i > 0) {
+		numspecs = xmakeglyphfontspecs(specs, &line[ox], x2 - ox, ox, y1);
+		xdrawglyphfontspecs(specs, base, numspecs, ox, y1);
+	}
 }
 
 void

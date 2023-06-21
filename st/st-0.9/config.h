@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "firacode nerd font mono:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 8;
+static int borderpx = 4;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -41,7 +41,7 @@ static unsigned int doubleclicktimeout = 300;
 static unsigned int tripleclicktimeout = 600;
 
 /* alt screens */
-int allowaltscreen = 1;
+int allowaltscreen = 0;
 
 /* allow certain non-interactive (insecure) window operations such as:
    setting the clipboard text */
@@ -71,7 +71,7 @@ static unsigned int cursorthickness = 2;
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
-static int bellvolume = 100;
+static int bellvolume = 0;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -93,36 +93,29 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 4;
 
-/* bg opacity */
-float alpha = 0.8;
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-    /* 8 normal colors */
-    [0] = "#000000", /* black   */
-    [1] = "#ff5555", /* red     */
-    [2] = "#50fa7b", /* green   */
-    [3] = "#f1fa8c", /* yellow  */
-    [4] = "#bd93f9", /* blue    */
-    [5] = "#ff79c6", /* magenta */
-    [6] = "#8be9fd", /* cyan    */
-    [7] = "#ffffff", /* white   */
+	/* 8 normal colors */
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"blue2",
+	"magenta3",
+	"cyan3",
+	"gray90",
 
-    /* 8 bright colors */
-    [8]  = "#44475a", /* black   */
-    [9]  = "#ff5555", /* red     */
-    [10] = "#50fa7b", /* green   */
-    [11] = "#f1fa8c", /* yellow  */
-    [12] = "#bd93f9", /* blue    */
-    [12] = "#2777ff", /* blue    */
-    [13] = "#ff79c6", /* magenta */
-    [14] = "#8be9fd", /* cyan    */
-    [15] = "#ffffff", /* white   */
+	/* 8 bright colors */
+	"gray50",
+	"red",
+	"green",
+	"yellow",
+	"#5c5cff",
+	"magenta",
+	"cyan",
+	"white",
 
-    /* special colors */
-    [256] = "#282a36", /* background */
-    [257] = "#f8f8f2", /* foreground */
-  	[255] = 0,
+	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
@@ -183,16 +176,16 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
-	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
-	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
-	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
-	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
+	{ XK_ANY_MOD,           Button4, kscrolldown,    {.i = -1} },
+	{ XK_ANY_MOD,           Button5, kscrollup,      {.i = -1} },
 };
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
+
+/* bg opacity */
+float alpha = 0.8;
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -208,8 +201,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-    { XK_NO_MOD,            XK_F11,         fullscreen,     {.i =  0} },
-    { MODKEY,               XK_Return,      fullscreen,     {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*

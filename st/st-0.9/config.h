@@ -106,7 +106,7 @@ static const char *colorname[] = {
     [4] = "blue",
     [5] = "purple",
     [6] = "cyan",
-    [7] = "white",
+    [7] = "snow2",
 
     /* 8 bold colors */
     [8] = "snow4",

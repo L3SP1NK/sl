@@ -72,5 +72,5 @@ static Key keys[] = {
     TAGKEYS(                        XK_egrave,                 6)
     TAGKEYS(                        XK_underscore,             7)
     TAGKEYS(                        XK_ccedilla,               8)
-    { MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
+    { MODKEY|ShiftMask,             XK_Escape,      quit,      {0} },
 };

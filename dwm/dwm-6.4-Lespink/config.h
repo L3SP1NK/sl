@@ -17,6 +17,9 @@ static const int topbar     = 1;    /* 0 means bottom bar */
 static const char *fonts[]                  = { "jetbrains mono nerd font mono:size=13" };
 static const char dmenufont[]               = "jetbrains mono nerd font mono:size=13";
 
+//static const char *fonts[]                  = { "MesloLGSDZ Nerd Font Mono:size=13" };
+//static const char dmenufont[]               = "MesloLGSDZ Nerd Font Mono::size=13";
+
 #include "./includes/colors.h"
 #include "./includes/layout.h"
 #include "./includes/rule.h"

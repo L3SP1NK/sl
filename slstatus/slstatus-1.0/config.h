@@ -67,8 +67,8 @@ static const struct arg args[] = {
         /* function format          argument */
 
         { cpu_perc,		"(%s%% ", NULL	     				},
-        { ram_perc,		"%s%% ",   NULL                        },
-        { disk_perc,    "󰆼%s%%)",   	"/"                     },
-        { datetime,     " %s ",     "%a %-e %b, %-k:%M:%S"  	},
+        { ram_perc,		"%s%% ",   NULL                    },
+        { disk_perc,    "󰆼%s%%)",   	"/"                 },
+        { datetime,     " %s ",     "%a %-e %b, %-k:%M"  	},
 
 };

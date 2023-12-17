@@ -7,10 +7,6 @@ static Button buttons[] = {
     { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
     { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 
-    { ClkStatusText,        0,              Button1,        spawn,          {.v = loadcmd } },
-    { ClkStatusText,        0,              Button2,        spawn,          {.v = calendarcmd } },
-    { ClkStatusText,        0,              Button3,        spawn,          {.v = clockcmd } },
-
     { ClkWinTitle,          0,              Button1,        movemouse,      {0} },
     { ClkWinTitle,          0,              Button2,        killclient,     {0} },
     { ClkWinTitle,          0,              Button3,        resizemouse,    {0} },

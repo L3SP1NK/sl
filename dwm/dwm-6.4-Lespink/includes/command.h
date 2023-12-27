@@ -1,10 +1,7 @@
 /* commands */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *calendarcmd[]  = { "st", "-e", "calcurse", NULL };
 static const char *killcmd[]  = { "xkill", NULL };
-static const char *clockcmd[]  = { "xclock", NULL };
-static const char *loadcmd[]  = { "xload", NULL };
 static const char *deskmenucmd[]  = { "xrootmenu", NULL };
 
 static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };

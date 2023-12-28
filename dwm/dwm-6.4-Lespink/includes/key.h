@@ -31,20 +31,24 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 
     /* focus */
-    { MODKEY,                       XK_Return, zoom,            {0} },
+    { MODKEY,                       XK_Return,	zoom,            {1} },
 
-    { Mod1Mask,                     XK_Tab,    focusstack,      {.i = +1 } },
-    { Mod1Mask|ShiftMask,           XK_Tab,    focusstack,      {.i = -1 } },
-    { MODKEY,                       XK_End,    focusmon,        {.i = -1 } },
-    { MODKEY,                       XK_Home,   focusmon,        {.i = +1 } },
+    { Mod1Mask,                     XK_Tab,		focusstack,      {.i = +1 } },
+    { Mod1Mask|ShiftMask,           XK_Tab,		focusstack,      {.i = -1 } },
+    { MODKEY,                       XK_End,		focusmon,        {.i = -1 } },
+    { MODKEY,                       XK_Home,	focusmon,        {.i = +1 } },
 
-    { MODKEY,                       XK_Left,   setmfact,        {.f = -0.05} },
-    { MODKEY,                       XK_Right,  setmfact,        {.f = +0.05} },
+    { MODKEY,                       XK_Left,	setmfact,        {.f = -0.05} },
+    { MODKEY,                       XK_Right,	setmfact,        {.f = +0.05} },
 
-    { ControlMask|Mod1Mask,         XK_Left,   shiftview,       {.i = -1 } },
-    { ControlMask|Mod1Mask,         XK_Right,  shiftview,       {.i = +1 } },
-    { ControlMask|Mod1Mask,         XK_Home,   shiftboth,       {.i = -1 } },
-    { ControlMask|Mod1Mask,         XK_End,    shiftboth,       {.i = +1 } },
+    { ControlMask|Mod1Mask,         XK_Left,	shiftview,       {.i = -1 } },
+    { ControlMask|Mod1Mask,         XK_Right,	shiftview,       {.i = +1 } },
+
+    { ControlMask|Mod1Mask,         XK_Down,	shiftview,       {.i = -1 } },
+    { ControlMask|Mod1Mask,         XK_Up,		shiftview,       {.i = +1 } },
+
+    { ControlMask|Mod1Mask,         XK_Home,	shiftboth,       {.i = -1 } },
+    { ControlMask|Mod1Mask,         XK_End,		shiftboth,       {.i = +1 } },
 
     /* layout */
     { MODKEY|ShiftMask,                       XK_t,      setlayout,       {.v = &layouts[0]} },

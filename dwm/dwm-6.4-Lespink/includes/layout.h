@@ -7,11 +7,11 @@ static const int lockfullscreen = 0;    /* 1 will force focus on the fullscreen 
 #include "../fibonacci.c"
 
 static const Layout layouts[] = {
-    { "",	tile	},	/* first entry is default */
-    { "",	NULL	},	/* no layout function means floating behavior */
-    { "",	monocle	},
-    { "",	spiral	},
-    { "",	dwindle	},
+    { "|     ",	tile	},	/* first entry is default */
+    { "|     ",	NULL	},	/* no layout function means floating behavior */
+    { "|     ",	monocle	},
+    { "|     ",	spiral	},
+    { "|     ",	dwindle	},
 };
 
 //static const Layout layouts[] = {

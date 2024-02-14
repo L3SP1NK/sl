@@ -3,7 +3,7 @@ shift(unsigned int *tag, int i)
 {
 	if (i > 0) /* left circular shift */
 		*tag = ((*tag << i) | (*tag >> (LENGTH(tags) - i)));
-	else       /* right circular shift */
+	else	   /* right circular shift */
 		*tag = (*tag >> (- i) | *tag << (LENGTH(tags) + i));
 }
 

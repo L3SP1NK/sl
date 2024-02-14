@@ -12,7 +12,7 @@ options:
 	@echo dwm build options:
 	@echo "CFLAGS   = ${CFLAGS} -fpie -z relro -fnostack-protector " ## pie+relro->ALSR, no-stack-protector->DEP
 	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
+	@echo "CC	   = ${CC}"
 
 .c.o:
 	${CC} -c ${CFLAGS} $<

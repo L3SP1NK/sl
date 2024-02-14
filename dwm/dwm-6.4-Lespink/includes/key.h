@@ -9,14 +9,6 @@
 static Key keys[] = {
 	/* modifier					key		function		argument */
 
-	/* Actions */
-	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = killcmd } },
-	{ ControlMask,				XK_Escape,	spawn,		{.v = dmenucmd } },
-	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = termcmd } },
-	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
-	{ MODKEY|ShiftMask,			XK_b,		togglebar,	{0} },
-	{ ControlMask,				XK_q,		killclient,	{0} },
-
 	/* Audio */
 	{ 0,	XF86XK_AudioMute,			spawn, {.v = mute_vol } },
 	{ 0,	XF86XK_AudioLowerVolume,	spawn, {.v = down_vol } },
@@ -80,5 +72,13 @@ static Key keys[] = {
 	TAGKEYS(	XK_egrave,		6)
 	TAGKEYS(	XK_underscore,	7)
 	TAGKEYS(	XK_ccedilla,	8)
+
+	/* Actions */
+	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = killcmd } },
+	{ ControlMask,				XK_Escape,	spawn,		{.v = dmenucmd } },
+	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = termcmd } },
+	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
+	{ MODKEY|ShiftMask,			XK_b,		togglebar,	{0} },
+	{ ControlMask,				XK_q,		killclient,	{0} },
 
 };

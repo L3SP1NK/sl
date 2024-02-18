@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+
+DIR=$(pwd)
+echo "Watching for change on the files inside ${DIR}..."
+
+find . -type f|entr -pc ./compile

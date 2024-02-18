@@ -1,15 +1,13 @@
 /* Colors */
 
-static const char col_gray1[]		= "black";		/*	background			*/
-static const char col_gray2[]		= "#1f1f1f";	/*	border				*/
-static const char col_gray5[]		= "#1f1f1f";	/*	border (focus) 		*/
-static const char col_gray3[]		= "snow3";	  	/*	foreground			*/
-static const char col_gray4[]		= "white";		/*	foreground (focus) 	*/
-static const char col_cyan[]		= "cyan";		/*	accent color 		*/
-static const char *colors[][3]	  = {
+static const char col_fg[]		= "Grey";
+static const char col_fg_sel[]	= "White";
+static const char col_bg[]		= "Black";
+static const char col_bg_sel[]	= "#0d0d0d";
 
-	 /*			   fg		 bg		 border   */
-	 [SchemeNorm] = { col_gray3, col_gray1,	col_gray2  },
-	 [SchemeSel]  = { col_gray4, col_gray2, col_gray5, },
+static const char *colors[][3]	  = {
+	 /*				  fg			bg		 	border		*/
+	 [SchemeNorm] = { col_fg,		col_bg,		col_bg	},
+	 [SchemeSel]  = { col_fg_sel,	col_bg_sel,	col_bg_sel,	},
 
 };

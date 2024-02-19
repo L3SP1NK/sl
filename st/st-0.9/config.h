@@ -6,7 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "JetBrainsMono Nerd Font Propo:pixelsize=18:antialias=true:autohint=true";
+//static char *font = "JetBrainsMono Nerd Font Propo:pixelsize=18:antialias=true:autohint=true";
+static char *font = "sf mono:pixelsize=18:antialias=true:autohint=true:style=medium";
 static int borderpx = 8;
 
 /*

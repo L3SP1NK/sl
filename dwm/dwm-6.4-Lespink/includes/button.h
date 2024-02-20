@@ -2,7 +2,7 @@
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click				event mask	button			function		argument */
-	{ ClkRootWin,			0,			Button3,		spawn,			{.v = deskmenucmd } },
+	{ ClkRootWin,			0,			Button3,		spawn,			{.v = deskmenu_cmd } },
 	{ ClkClientWin,			MODKEY,		Button1,		movemouse,		{0} },
 	{ ClkClientWin,			MODKEY,		Button3,		resizemouse,	{0} },
 	{ ClkWinTitle,			0,			Button1,		movemouse,		{0} },

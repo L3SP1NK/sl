@@ -13,6 +13,7 @@ static Key keys[] = {
 	{ 0,	XF86XK_AudioMute,			spawn, {.v = mute_vol } },
 	{ 0,	XF86XK_AudioLowerVolume,	spawn, {.v = down_vol } },
 	{ 0,	XF86XK_AudioRaiseVolume,	spawn, {.v = up_vol } },
+	{ 0,	XF86XK_Calculator,			spawn, {.v = calc_cmd } },
 
 	/* Brightness */
 	{ 0,	XF86XK_MonBrightnessDown,	spawn, {.v = dimmer } },
@@ -74,9 +75,9 @@ static Key keys[] = {
 	TAGKEYS(	XK_ccedilla,	8)
 
 	/* Actions */
-	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = killcmd } },
-	{ ControlMask,				XK_Escape,	spawn,		{.v = dmenucmd } },
-	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = termcmd } },
+	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = xkill_cmd } },
+	{ ControlMask,				XK_Escape,	spawn,		{.v = dmenu_cmd } },
+	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = term_cmd } },
 	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
 	{ MODKEY|ShiftMask,			XK_b,		togglebar,	{0} },
 	{ ControlMask,				XK_q,		killclient,	{0} },

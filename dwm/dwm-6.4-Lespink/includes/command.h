@@ -1,11 +1,21 @@
 /* Commands */
-static const char *dmenu_cmd[]		= { "rofi", "-show", "drun", NULL };
-static const char *term_cmd[]		= { "st", NULL };
-static const char *xkill_cmd[]  	= { "xkill", NULL };
-static const char *calc_cmd[]  		= { "mate-calc", NULL };
-static const char *deskmenu_cmd[]	= { "xrootmenu", NULL };
-static const char *brighter[]		= { "brightnessctl", "set", "10%+", NULL };
-static const char *dimmer[]			= { "brightnessctl", "set", "10%-", NULL };
-static const char *up_vol[]			= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
-static const char *down_vol[]		= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
-static const char *mute_vol[]		= { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+static const char *launcher_menu[]		= { "rofi", "-show", "drun", NULL };
+static const char *default_terminal[]	= { "x-terminal-emulator", NULL };
+static const char *select_kill[]		= { "xkill", NULL };
+
+
+/* Special Functions */
+static const char *calculator[]  		= { "mate-calc", NULL };
+static const char *default_mail[]		= { "exo-open --launch MailReader %u", NULL };
+static const char *default_browser[]	= { "x-www-browser", NULL };
+static const char *desktop_appmenu[]		= { "xrootmenu", NULL };
+
+/* Brightness Control */
+static const char *brightness_up[]		= { "brightnessctl", "set", "10%+", NULL };
+static const char *brightness_down[]	= { "brightnessctl", "set", "10%-", NULL };
+
+
+/* Volume Control */
+static const char *volume_up[]			= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
+static const char *volume_down[]		= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
+static const char *volume_mute[]		= { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };

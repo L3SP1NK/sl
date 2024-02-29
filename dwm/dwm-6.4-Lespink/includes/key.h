@@ -10,14 +10,19 @@ static Key keys[] = {
 	/* modifier					key		function		argument */
 
 	/* Audio */
-	{ 0,	XF86XK_AudioMute,			spawn, {.v = mute_vol } },
-	{ 0,	XF86XK_AudioLowerVolume,	spawn, {.v = down_vol } },
-	{ 0,	XF86XK_AudioRaiseVolume,	spawn, {.v = up_vol } },
-	{ 0,	XF86XK_Calculator,			spawn, {.v = calc_cmd } },
+	{ 0,	XF86XK_AudioRaiseVolume,	spawn, {.v = volume_up } },
+	{ 0,	XF86XK_AudioLowerVolume,	spawn, {.v = volume_down } },
+	{ 0,	XF86XK_AudioMute,			spawn, {.v = volume_mute } },
+
+	/* Special Functions */
+	{ 0,	XF86XK_Calculator,			spawn, {.v = calculator } },
+	{ 0,	XF86XK_Mail,				spawn, {.v = default_mail } },
+	{ 0,	XF86XK_Tools,				spawn, {.v = default_browser } },
+	{ 0,	XF86XK_HomePage,			spawn, {.v = desktop_appmenu } },
 
 	/* Brightness */
-	{ 0,	XF86XK_MonBrightnessDown,	spawn, {.v = dimmer } },
-	{ 0,	XF86XK_MonBrightnessUp,		spawn, {.v = brighter } },
+	{ 0,	XF86XK_MonBrightnessDown,	spawn, {.v = brightness_down } },
+	{ 0,	XF86XK_MonBrightnessUp,		spawn, {.v = brightness_up } },
 
 	/* Gaps */
 	{ MODKEY|ShiftMask,		XK_minus,	setgaps,	{.i = -5 } },
@@ -27,14 +32,19 @@ static Key keys[] = {
 	{ MODKEY,					XK_Return,	zoom,			{1} },
 	{ Mod1Mask,					XK_Tab,		focusstack,		{.i = +1 } },
 	{ Mod1Mask|ShiftMask,		XK_Tab,		focusstack,		{.i = -1 } },
+
 	{ MODKEY,					XK_End,		focusmon,		{.i = -1 } },
 	{ MODKEY,					XK_Home,	focusmon,		{.i = +1 } },
+
 	{ MODKEY,					XK_Left,	setmfact,		{.f = -0.05} },
 	{ MODKEY,					XK_Right,	setmfact,		{.f = +0.05} },
+
 	{ ControlMask|Mod1Mask,		XK_Left,	shiftview,		{.i = -1 } },
 	{ ControlMask|Mod1Mask,		XK_Right,	shiftview,		{.i = +1 } },
-	{ ControlMask|Mod1Mask,		XK_Down,	shiftview,		{.i = -1 } },
-	{ ControlMask|Mod1Mask,		XK_Up,		shiftview,		{.i = +1 } },
+
+	{ ControlMask|Mod1Mask,		XK_Down,	shiftboth,		{.i = -1 } },
+	{ ControlMask|Mod1Mask,		XK_Up,		shiftboth,		{.i = +1 } },
+
 	{ ControlMask|Mod1Mask,		XK_Home,	shiftboth,		{.i = -1 } },
 	{ ControlMask|Mod1Mask,		XK_End,		shiftboth,		{.i = +1 } },
 
@@ -75,9 +85,9 @@ static Key keys[] = {
 	TAGKEYS(	XK_ccedilla,	8)
 
 	/* Actions */
-	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = xkill_cmd } },
-	{ ControlMask,				XK_Escape,	spawn,		{.v = dmenu_cmd } },
-	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = term_cmd } },
+	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = select_kill } },
+	{ ControlMask,				XK_Escape,	spawn,		{.v = launcher_menu } },
+	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = default_terminal } },
 	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
 	{ MODKEY|ShiftMask,			XK_b,		togglebar,	{0} },
 	{ ControlMask,				XK_q,		killclient,	{0} },

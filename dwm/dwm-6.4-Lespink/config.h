@@ -14,8 +14,9 @@ static const int showsystray				= 1;	/* 0 means no systray */
 static const int showbar	= 1;	/* 0 means no bar */
 static const int topbar		= 2;	/* 0 means bottom bar */
 
-static const char *fonts[]		= { "sf pro rounded:size=14:style=bold" };
+static const char *fonts[]		= { "sf pro rounded:size=14:style=medium" };
 static const char dmenufont[]	= "sf pro rounded:size=14";
+
 
 #include "./includes/colors.h"
 #include "./includes/layout.h"

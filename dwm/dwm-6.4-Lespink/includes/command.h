@@ -8,8 +8,8 @@ static const char *select_kill[]		= { "xkill", NULL };
 static const char *calculator[]  		= { "mate-calc", NULL };
 static const char *default_mail[]		= { "exo-open --launch MailReader %u", NULL };
 static const char *default_browser[]	= { "x-www-browser", NULL };
-//static const char *desktop_appmenu[]		= { "xrootmenu", NULL };
-static const char *desktop_appmenu[]		= { "jgmenu_run", NULL };
+//static const char *desktop_appmenu[]	= { "kill $(pgrep jgmenu);jgmenu --at-pointer", NULL };
+static const char *desktop_appmenu[]	= { "xrootmenu", NULL };
 
 /* Brightness Control */
 static const char *brightness_up[]		= { "brightnessctl", "set", "10%+", NULL };

@@ -14,7 +14,11 @@ static const int showsystray				= 1;	/* 0 means no systray */
 static const int showbar	= 1;	/* 0 means no bar */
 static const int topbar		= 2;	/* 0 means bottom bar */
 
-static const char *fonts[]		= { "sf pro rounded:size=14:style:medium" };
+//static const char *fonts[]		= { "sf pro rounded:size=14:style:light" };
+//static const char dmenufont[]	= "sf pro rounded:size=14";
+//
+
+static const char *fonts[]		= { "firacode nerd font mono:size=13:style:bold" };
 static const char dmenufont[]	= "sf pro rounded:size=14";
 
 

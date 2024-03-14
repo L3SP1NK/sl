@@ -4,7 +4,6 @@ set -euo pipefail
 killX() {
 
 	if pidof Xorg>/dev/null; then
-		echo 'Press any key to exit...'
 		killall Xorg
 	fi
 
@@ -21,7 +20,8 @@ compile() {
 
 	echo -e '\e[32mCompilation Done!\e[0m'
 
-	killX
+	echo 'Press enter to restart the X server'
+	read && killX
 
 }
 

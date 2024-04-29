@@ -1,0 +1,28 @@
+#!/bin/bash
+set -euo pipefail
+
+killX() {
+
+	if pidof Xorg>/dev/null; then
+		killall Xorg
+	fi
+
+}
+
+compile() {
+
+	MAKE_ARGS='-Wnowarn'
+
+	make clean
+	make ${MAKE_ARGS}
+	make install
+	make dist
+
+	echo -e '\e[32mCompilation Done!\e[0m'
+
+	echo 'Press enter to restart the X server'
+	read && killX
+
+}
+
+compile

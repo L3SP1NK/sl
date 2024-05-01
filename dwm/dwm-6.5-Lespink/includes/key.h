@@ -14,7 +14,7 @@ static Key keys[] = {
 	{ 0,	XF86XK_AudioLowerVolume,	spawn, {.v = volume_down } },
 	{ 0,	XF86XK_AudioMute,			spawn, {.v = volume_mute } },
 
-	/* Special Functions */
+	/* Special Keyboard Functions */
 	{ 0,	XF86XK_Calculator,			spawn, {.v = calculator } },
 	{ 0,	XF86XK_Mail,				spawn, {.v = default_mail } },
 	{ 0,	XF86XK_Tools,				spawn, {.v = default_browser } },
@@ -24,11 +24,11 @@ static Key keys[] = {
 	{ 0,	XF86XK_MonBrightnessDown,	spawn, {.v = brightness_down } },
 	{ 0,	XF86XK_MonBrightnessUp,		spawn, {.v = brightness_up } },
 
-	/* Gaps */
+	/* Increase/Decrease Gaps Size */
 	{ MODKEY|ShiftMask,		XK_minus,	setgaps,	{.i = -5 } },
 	{ MODKEY|ShiftMask,		XK_equal,	setgaps,	{.i = +5 } },
 
-	/* Focus */
+	/* Set Focus */
 	{ MODKEY,					XK_Return,	zoom,			{1} },
 	{ Mod1Mask,					XK_Tab,		focusstack,		{.i = +1 } },
 	{ Mod1Mask|ShiftMask,		XK_Tab,		focusstack,		{.i = -1 } },
@@ -63,8 +63,11 @@ static Key keys[] = {
 	{ MODKEY,					XK_agrave,		view,	{.ui = ~0 } },
 	{ MODKEY|ShiftMask,			XK_agrave,		tag,	{.ui = ~0 } },
 	{ MODKEY|ShiftMask,			XK_agrave,		tag,	{.ui = ~0 } },
+
+	/* Send window to monitor X */
 	{ MODKEY|ShiftMask,			XK_End,			tagmon,	{.i = -1 } },
 	{ MODKEY|ShiftMask,			XK_Home,		tagmon,	{.i = +1 } },
+
 	{ MODKEY|ControlMask,		XK_ampersand,	tag,	{0} },
 	{ MODKEY|ControlMask,		XK_eacute,		tag,	{0} },
 	{ MODKEY|ControlMask,		XK_quotedbl,	tag,	{0} },
@@ -74,6 +77,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,		XK_egrave,		tag,	{0} },
 	{ MODKEY|ControlMask,		XK_underscore,	tag,	{0} },
 	{ MODKEY|ControlMask,		XK_ccedilla,	tag,	{0} },
+
 	TAGKEYS(	XK_ampersand,	0)
 	TAGKEYS(	XK_eacute,		1)
 	TAGKEYS(	XK_quotedbl,	2)

@@ -1,7 +1,7 @@
 /* legacy functions */
 static char dmenumon[2]	= "0";
 static char *dmenucmd[]	= { "rofi", "-show", "drun", NULL };
-static char *termcmd[]	= { "x-terminal-emulator", NULL };
+//static char *termcmd[]	= { "x-terminal-emulator", NULL };
 
 /* Commands */
 static const char *launcher_menu[]		= { "rofi", "-show", "drun", NULL };

@@ -66,11 +66,10 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	//🪖🥊🪁📟🪜🗄📂📌🔗🔩🔎📖
-	{ cpu_perc,		" [ CPU:%s%% | ",	NULL			},
-	{ ram_perc,		"RAM:%s%% | ",	NULL			},
-	{ disk_perc,	"DISK:%s%% ]",	"/"				},
-//	{ datetime,		"🗓 %s ",		"%A %-e %B, %-k:%M"		},
-//	{ run_command,	"%s",		"emojiclock"	},
-	{ datetime,		"  %s  ",		"%A %-e %B, %-k:%M"		},
+	{ cpu_perc,		" [ CPU:%s%%",	NULL				},
+	{ run_command,	"%s| ",		"tempmon"			},
+	{ ram_perc,		"RAM:%s%% | ",	NULL				},
+	{ disk_perc,	"DISK:%s%% ]",	"/"					},
+	{ datetime,		"  %s  ",		"%A %-e %B, %-k:%M"	},
 
 };

@@ -18,9 +18,9 @@ static const int lockfullscreen = 0;	/* 1 will force focus on the fullscreen win
 
 // Emoji Icons.
 static const Layout layouts[] = {
-	{ "[æ]",	tile	},	/* first entry is default */
+	{ "[T]",	tile	},	/* first entry is default */
 	{ "[ø]",	NULL	},	/* no layout function means floating behavior */
-	{ "[¤]",	monocle	},
-	{ "[þ]",	spiral	},
-	{ "[¶]",	dwindle	},
+	{ "[M]",	monocle	},
+	{ "[S]",	spiral	},
+	{ "[D]",	dwindle	},
 };

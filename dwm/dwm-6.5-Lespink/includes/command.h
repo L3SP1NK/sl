@@ -6,8 +6,7 @@ static char *dmenucmd[]	= { "rofi", "-show", "drun", NULL };
 /* Commands */
 static const char *launcher_menu[]		= { "rofi", "-show", "drun", NULL };
 static const char *default_terminal[]	= { "x-terminal-emulator", NULL };
-//static const char *select_kill[]		= { "xkill", NULL };
-static const char *select_kill[]		= { "xkil", NULL };
+static const char *select_kill[]		= { "xkill", NULL };
 
 
 /* Special Functions */

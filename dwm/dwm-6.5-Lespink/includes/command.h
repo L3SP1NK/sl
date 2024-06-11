@@ -1,7 +1,7 @@
 /* legacy functions */
 static char dmenumon[2]	= "0";
 static char *dmenucmd[]	= { "rofi", "-show", "drun", NULL };
-//static char *termcmd[]	= { "x-terminal-emulator", NULL };
+static char *termcmd[]	= { "x-terminal-emulator", NULL };
 
 /* Commands */
 static const char *launcher_menu[]		= { "rofi", "-show", "drun", NULL };
@@ -13,7 +13,6 @@ static const char *select_kill[]		= { "xkill", NULL };
 static const char *calculator[]  		= { "mate-calc", NULL };
 static const char *default_mail[]		= { "exo-open --launch MailReader %u", NULL };
 static const char *default_browser[]	= { "x-www-browser", NULL };
-//static const char *desktop_appmenu[]	= { "kill $(pgrep jgmenu);jgmenu --at-pointer", NULL };
 static const char *desktop_appmenu[]	= { "xrootmenu", NULL };
 
 /* Brightness Control */

@@ -11,9 +11,9 @@ static const Rule rules[] = {
 	{ "Xmessage",	NULL,	   NULL,	   0,			1,		   -1 },
 	{ "Xload",		NULL,	   NULL,	   0,			1,		   -1 },
 	{ "xclock",		NULL,	   "xclock",   -1,		   1,		   -1 },
-	{ "Xzoom",	  NULL,	   "xzoom x4", 0,			1,		   -1 },
+	{ "Xzoom",		NULL,	   "xzoom x4", 0,			1,		   -1 },
 	{ "Notes",		NULL,	   NULL,	   0,			1,		   -1 },
-//	{ "Telegram",	NULL,	   NULL,	   0,			1,		   -1 },
+	{ "Telegram",	NULL,	   NULL,	   0,			1,		   -1 },
 
 };
 

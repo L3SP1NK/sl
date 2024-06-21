@@ -8,6 +8,7 @@
 
 static char *font = "JetBrainsMono Nerd Font Mono:pixelsize=16:antialias=true:autohint=true:style:regular";
 //static char *font = "MartianMono Nerd Font Mono:pixelsize=15:antialias=true:autohint=true:style=thin";
+//static char *font = "sf mono:pixelsize=15:antialias=true:autohint=true:style=thin";
 //static char *font = "firacode nerd font propo:pixelsize=18:antialias=true:autohint=true:style=retina";
 static int borderpx = 8;
 

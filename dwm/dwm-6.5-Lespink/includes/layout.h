@@ -6,7 +6,6 @@ static const int lockfullscreen = 0;	/* 1 will force focus on the fullscreen win
 
 #include "../fibonacci.c"
 
-// Nerd Font Icons.
 //static const Layout layouts[] = {
 //	{ "  ",	tile	},	/* first entry is default */
 //	{ "  ",	NULL	},	/* no layout function means floating behavior */
@@ -15,11 +14,9 @@ static const int lockfullscreen = 0;	/* 1 will force focus on the fullscreen win
 //	{ "  ",	dwindle	},
 //};
 
-
-// Emoji Icons.
 static const Layout layouts[] = {
 	{ "[T]",	tile	},	/* first entry is default */
-	{ "[ø]",	NULL	},	/* no layout function means floating behavior */
+	{ "[F]",	NULL	},	/* no layout function means floating behavior */
 	{ "[M]",	monocle	},
 	{ "[S]",	spiral	},
 	{ "[D]",	dwindle	},

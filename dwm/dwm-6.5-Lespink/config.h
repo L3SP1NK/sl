@@ -14,8 +14,8 @@ static const int showsystray				= 1;	/* 0 means no systray */
 static const int showbar	= 1;	/* 0 means no bar */
 static const int topbar		= 1;	/* 0 means bottom bar */
 
-static const char *fonts[]		= { "robotoregular:size=13:style:bold" };
-static const char dmenufont[]	= "robotoregular:size=13:style:bold";
+static const char *fonts[]		= { "arimo nerd font:size=13:style:bold" };
+static const char dmenufont[]	= "arimo nerd font:size=13:style:bold";
 
 #include "./includes/colors.h"
 #include "./includes/layout.h"

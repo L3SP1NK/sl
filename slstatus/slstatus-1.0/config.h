@@ -4,10 +4,10 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "?";
 
 /* maximum output string length */
-#define MAXLEN 1024
+#define MAXLEN 128
 
 /*
  * function            description                     argument (example)
@@ -66,11 +66,10 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 
 	/* function		format      	   	argument */
-//	{ run_command,	" %s "	,			"rammon"			},
 
-	{ cpu_perc,		" [ CPU: %s%% -",	NULL				},
-	{ ram_perc,		" RAM: %s%% ]",	NULL				},
+	{ cpu_perc,	"  cpu:%s%%",	NULL },
+	{ ram_perc,	" mem:%s%%",	NULL },
 
-	{ datetime,		"  %s  ",			"%A %-e %B, %-k:%M"	},
+	{ datetime,	"  %s  ",	"%A %-e %B, %-k:%M" },
 
 };

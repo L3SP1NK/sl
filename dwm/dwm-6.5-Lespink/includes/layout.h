@@ -14,10 +14,18 @@ static const int lockfullscreen = 0;	/* 1 will force focus on the fullscreen win
 //	{ "  ",	dwindle	},
 //};
 
+//static const Layout layouts[] = {
+//	{ "[T]",	tile	},	/* first entry is default */
+//	{ "[F]",	NULL	},	/* no layout function means floating behavior */
+//	{ "[M]",	monocle	},
+//	{ "[S]",	spiral	},
+//	{ "[D]",	dwindle	},
+//};
+
 static const Layout layouts[] = {
-	{ "[T]",	tile	},	/* first entry is default */
-	{ "[F]",	NULL	},	/* no layout function means floating behavior */
-	{ "[M]",	monocle	},
-	{ "[S]",	spiral	},
-	{ "[D]",	dwindle	},
+	{ "+",	tile	},	/* first entry is default */
+	{ "ø",	NULL	},	/* no layout function means floating behavior */
+	{ "#",	monocle	},
+	{ "&",	spiral	},
+	{ "@",	dwindle	},
 };

@@ -2,7 +2,7 @@
 
 /* Appearance */
 static const unsigned int borderpx	= 0;	/* border pixel of windows */
-static const Gap default_gap		= {.isgap = 1, .realgap = 20, .gappx = 20};
+static const Gap default_gap		= {.isgap = 1, .realgap = 15, .gappx = 15};
 static const unsigned int snap		= 0;	/* snap pixel */
 
 static const unsigned int systraypinning	= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -14,8 +14,8 @@ static const int showsystray				= 1;	/* 0 means no systray */
 static const int showbar	= 1;	/* 0 means no bar */
 static const int topbar		= 1;	/* 0 means bottom bar */
 
-static const char *fonts[]		= { "arimo nerd font:size=14:style:bold" };
-static const char dmenufont[]	= "arimo nerd font:size=14:style:bold";
+static const char *fonts[]		= { "robotoregular:size=14:style:bold" };
+static const char dmenufont[]	= "robotoregular:size=14:style:bold";
 
 #include "./includes/colors.h"
 #include "./includes/layout.h"

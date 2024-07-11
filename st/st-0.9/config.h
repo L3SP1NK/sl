@@ -7,9 +7,9 @@
  */
 
 //static char *font = "JetBrainsMono Nerd Font Propo:pixelsize=18:antialias=true:autohint=true:style:regular";
-static char *font = "CommitMono Nerd Font:pixelsize=18:antialias=true:autohint=true:style=regular";
+//static char *font = "CommitMono Nerd Font:pixelsize=18:antialias=true:autohint=true:style=regular";
 //static char *font = "sf mono:pixelsize=18:antialias=true:autohint=true:style=regular";
-//static char *font = "firacode nerd font propo:pixelsize=18:antialias=true:autohint=true:style=retina";
+static char *font = "firacode nerd font propo:pixelsize=18:antialias=true:autohint=true:style=retina";
 static int borderpx = 8;
 
 /*

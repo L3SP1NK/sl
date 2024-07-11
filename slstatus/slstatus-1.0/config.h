@@ -7,7 +7,7 @@ const unsigned int interval = 1000;
 static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
-#define MAXLEN 2048
+#define MAXLEN 1024
 
 /*
  * function            description                     argument (example)
@@ -65,13 +65,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 
-	/* function		format         	argument */
-	{ run_command,	" %s "	,			"freqmon"			},
-	{ run_command,	" %s "	,			"tempmon"			},
-	{ run_command,	" %s "	,			"rammon"			},
-//	{ cpu_perc,		" [ CPU: %s%% ] ",	NULL				},
-//	{ run_command,	" [ RAM: %s ] ",	"ramused"			},
-//	{ netspeed_rx,	" [ NET: ↓ %sB",				"usb0"				},
-//	{ netspeed_tx,	" / %sB ↑ ] ",				"usb0"				},
+	/* function		format      	   	argument */
+//	{ run_command,	" %s "	,			"rammon"			},
+
+	{ cpu_perc,		" [ CPU: %s%% -",	NULL				},
+	{ ram_perc,		" RAM: %s%% ]",	NULL				},
+
 	{ datetime,		"  %s  ",			"%A %-e %B, %-k:%M"	},
+
 };

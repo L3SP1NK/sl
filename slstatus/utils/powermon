@@ -1,0 +1,86 @@
+#!/bin/bash
+## Display power information for intel platform
+
+set -euo pipefail
+
+
+getWatt() {
+
+	total_power=0
+	for domain in /sys/class/powercap/intel-rapl/intel-rapl:*; do
+	    if [ -f "$domain/energy_uj" ]; then
+	        energy_uj=$(cat "$domain/energy_uj")
+	        total_power=$((total_power + energy_uj))
+	    fi
+	done
+
+	sleep 1
+
+	new_total_power=0
+	for domain in /sys/class/powercap/intel-rapl/intel-rapl:*; do
+	    if [ -f "$domain/energy_uj" ]; then
+	        energy_uj=$(cat "$domain/energy_uj")
+	        new_total_power=$((new_total_power + energy_uj))
+	    fi
+	done
+
+	power_diff=$((new_total_power - total_power))
+	power_watts=$(echo "scale=2; $power_diff / 1000000" | bc)
+
+
+	printf " %s W " "${power_watts}"
+
+}
+
+rc6State() {
+
+	RC6_STATE=$(</sys/class/drm/card0/gt/gt0/rc6_enable)
+	RC6_RES_MS=$(</sys/class/drm/card0/gt/gt0/rc6_residency_ms)
+
+	## 1 mil
+	if [[ $RC6_RES_MS -gt '0' && $RC6_RES_MS -lt '1000' ]]; then
+		UNIT=ms
+		VALUE=${RC6_RES_MS}${UNIT}
+
+	## 1 sec
+	elif [[ $RC6_RES_MS -gt '1000' && $RC6_RES_MS -lt '60000' ]]; then
+		RC6_RES_S=$(( RC6_RES_MS / 1000 ))
+		UNIT='MS'
+		VALUE=${RC6_RES_S}${UNIT}
+
+	## 1 min
+	elif [[ $RC6_RES_MS -gt '60000' && $RC6_RES_MS -lt '3600000' ]]; then
+		RC6_RES_M=$(( $(( RC6_RES_MS / 1000 )) / 60 ))
+		UNIT='M'
+		VALUE=${RC6_RES_M}${UNIT}
+
+	## 1 hour
+	elif [[ $RC6_RES_MS -gt '3600000' && $RC6_RES_MS -lt '216000000' ]]; then
+		RC6_RES_H=$(( $(( $(( RC6_RES_MS / 1000 )) / 60 )) / 60 ))
+		UNIT='H'
+		VALUE=${RC6_RES_H}${UNIT}
+
+	## 1 day
+	elif [[ $RC6_RES_MS -gt '216000000' && $RC6_RES_MS -lt '5184000000' ]]; then
+		RC6_RES_D=$(( $(( $(( $(( RC6_RES_MS / 1000 )) / 60 )) / 60 )) / 24 ))
+		UNIT='D'
+		VALUE=${RC6_RES_D}${UNIT}
+	fi
+
+	if [[ $RC6_STATE == '1' ]] ; then
+		echo -ne "[\e[32mRC6\e[0m]"
+	fi
+
+	echo -ne " | idle: ${VALUE} |"
+
+}
+
+main() {
+
+	rc6State
+	getWatt
+	intel_gpu_frequency -g|sed "s/Opened device: //g"|grep -vE 'min|max'
+
+}
+
+main

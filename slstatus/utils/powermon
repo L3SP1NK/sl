@@ -79,7 +79,7 @@ main() {
 
 	rc6State
 	getWatt
-	intel_gpu_frequency -g|sed "s/Opened device: //g"|grep -vE 'min|max'
+	intel_gpu_frequency -g|sed "s/Opened device: //g"|grep -vE 'min|max'|tr '\n' ' '
 
 }
 

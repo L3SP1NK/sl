@@ -96,9 +96,9 @@ fmt_human(uintmax_t num, int base)
 	size_t i, prefixlen;
 	const char **prefix;
 	const char *prefix_1000[] = { "", "k", "M", "G", "T", "P", "E", "Z",
-	                              "Y" };
+								  "Y" };
 	const char *prefix_1024[] = { "", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei",
-	                              "Zi", "Yi" };
+								  "Zi", "Yi" };
 
 	switch (base) {
 	case 1000:

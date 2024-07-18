@@ -53,10 +53,10 @@
 
 		/* Only match output.level and output.mute audio controls. */
 		if (desc->group[0] != 0 ||
-		    strcmp(desc->node0.name, "output") != 0)
+			strcmp(desc->node0.name, "output") != 0)
 			return;
 		if (desc->type == SIOCTL_NUM &&
-		    strcmp(desc->func, "level") == 0)
+			strcmp(desc->func, "level") == 0)
 			type = CTRL_LEVEL;
 		else if (desc->type == SIOCTL_SW &&
 			 strcmp(desc->func, "mute") == 0)

@@ -30,7 +30,7 @@
 
 /* Arbitrary sizes */
 #define UTF_INVALID   0xFFFD
-#define UTF_SIZ       4
+#define UTF_SIZ	   4
 #define ESC_BUF_SIZ   (128*UTF_SIZ)
 #define ESC_ARG_SIZ   16
 #define STR_BUF_SIZ   ESC_BUF_SIZ
@@ -44,13 +44,13 @@
 #define ISDELIM(u)		(u && wcschr(worddelimiters, u))
 
 enum term_mode {
-	MODE_WRAP        = 1 << 0,
-	MODE_INSERT      = 1 << 1,
+	MODE_WRAP		= 1 << 0,
+	MODE_INSERT	  = 1 << 1,
 	MODE_ALTSCREEN   = 1 << 2,
-	MODE_CRLF        = 1 << 3,
-	MODE_ECHO        = 1 << 4,
-	MODE_PRINT       = 1 << 5,
-	MODE_UTF8        = 1 << 6,
+	MODE_CRLF		= 1 << 3,
+	MODE_ECHO		= 1 << 4,
+	MODE_PRINT	   = 1 << 5,
+	MODE_UTF8		= 1 << 6,
 };
 
 enum cursor_movement {
@@ -75,13 +75,13 @@ enum charset {
 };
 
 enum escape_state {
-	ESC_START      = 1,
-	ESC_CSI        = 2,
-	ESC_STR        = 4,  /* DCS, OSC, PM, APC */
+	ESC_START	  = 1,
+	ESC_CSI		= 2,
+	ESC_STR		= 4,  /* DCS, OSC, PM, APC */
 	ESC_ALTCHARSET = 8,
-	ESC_STR_END    = 16, /* a final string was encountered */
-	ESC_TEST       = 32, /* Enter in test mode */
-	ESC_UTF8       = 64,
+	ESC_STR_END	= 16, /* a final string was encountered */
+	ESC_TEST	   = 32, /* Enter in test mode */
+	ESC_UTF8	   = 64,
 };
 
 typedef struct {
@@ -111,18 +111,18 @@ typedef struct {
 
 /* Internal representation of the screen */
 typedef struct {
-	int row;      /* nb row */
-	int col;      /* nb col */
+	int row;	  /* nb row */
+	int col;	  /* nb col */
 	Line *line;   /* screen */
-	Line *alt;    /* alternate screen */
+	Line *alt;	/* alternate screen */
 	int *dirty;   /* dirtyness of lines */
-	TCursor c;    /* cursor */
-	int ocx;      /* old cursor col */
-	int ocy;      /* old cursor row */
-	int top;      /* top    scroll limit */
-	int bot;      /* bottom scroll limit */
-	int mode;     /* terminal mode flags */
-	int esc;      /* escape state flags */
+	TCursor c;	/* cursor */
+	int ocx;	  /* old cursor col */
+	int ocy;	  /* old cursor row */
+	int top;	  /* top	scroll limit */
+	int bot;	  /* bottom scroll limit */
+	int mode;	 /* terminal mode flags */
+	int esc;	  /* escape state flags */
 	char trantbl[4]; /* charset table translation */
 	int charset;  /* current charset */
 	int icharset; /* selected charset for sequence */
@@ -134,22 +134,22 @@ typedef struct {
 /* ESC '[' [[ [<priv>] <arg> [;]] <mode> [<mode>]] */
 typedef struct {
 	char buf[ESC_BUF_SIZ]; /* raw string */
-	size_t len;            /* raw string length */
+	size_t len;			/* raw string length */
 	char priv;
 	int arg[ESC_ARG_SIZ];
-	int narg;              /* nb of args */
+	int narg;			  /* nb of args */
 	char mode[2];
 } CSIEscape;
 
 /* STR Escape sequence structs */
 /* ESC type [[ [<priv>] <arg> [;]] <mode>] ESC '\' */
 typedef struct {
-	char type;             /* ESC type ... */
-	char *buf;             /* allocated raw string */
-	size_t siz;            /* allocation size */
-	size_t len;            /* raw string length */
+	char type;			 /* ESC type ... */
+	char *buf;			 /* allocated raw string */
+	size_t siz;			/* allocation size */
+	size_t len;			/* raw string length */
 	char *args[STR_ARG_SIZ];
-	int narg;              /* nb of args */
+	int narg;			  /* nb of args */
 } STREscape;
 
 static void execsh(char *, char **);
@@ -227,9 +227,9 @@ static int iofd = 1;
 static int cmdfd;
 static pid_t pid;
 
-static const uchar utfbyte[UTF_SIZ + 1] = {0x80,    0, 0xC0, 0xE0, 0xF0};
+static const uchar utfbyte[UTF_SIZ + 1] = {0x80,	0, 0xC0, 0xE0, 0xF0};
 static const uchar utfmask[UTF_SIZ + 1] = {0xC0, 0x80, 0xE0, 0xF0, 0xF8};
-static const Rune utfmin[UTF_SIZ + 1] = {       0,    0,  0x80,  0x800,  0x10000};
+static const Rune utfmin[UTF_SIZ + 1] = {	   0,	0,  0x80,  0x800,  0x10000};
 static const Rune utfmax[UTF_SIZ + 1] = {0x10FFFF, 0x7F, 0x7FF, 0xFFFF, 0x10FFFF};
 
 ssize_t
@@ -501,11 +501,11 @@ selected(int x, int y)
 
 	if (sel.type == SEL_RECTANGULAR)
 		return BETWEEN(y, sel.nb.y, sel.ne.y)
-		    && BETWEEN(x, sel.nb.x, sel.ne.x);
+			&& BETWEEN(x, sel.nb.x, sel.ne.x);
 
 	return BETWEEN(y, sel.nb.y, sel.ne.y)
-	    && (y != sel.nb.y || x >= sel.nb.x)
-	    && (y != sel.ne.y || x <= sel.ne.x);
+		&& (y != sel.nb.y || x >= sel.nb.x)
+		&& (y != sel.ne.y || x <= sel.ne.x);
 }
 
 void
@@ -629,7 +629,7 @@ getsel(void)
 		 * FIXME: Fix the computer world.
 		 */
 		if ((y < sel.ne.y || lastx >= linelen) &&
-		    (!(last->mode & ATTR_WRAP) || sel.type == SEL_RECTANGULAR))
+			(!(last->mode & ATTR_WRAP) || sel.type == SEL_RECTANGULAR))
 			*ptr++ = '\n';
 	}
 	*ptr = 0;
@@ -770,7 +770,7 @@ ttynew(const char *line, char *cmd, const char *out, char **args)
 	if (line) {
 		if ((cmdfd = open(line, O_RDWR)) < 0)
 			die("open line '%s' failed: %s\n",
-			    line, strerror(errno));
+				line, strerror(errno));
 		dup2(cmdfd, 0);
 		stty(args);
 		return cmdfd;
@@ -1106,7 +1106,7 @@ selscroll(int orig, int n)
 		sel.ob.y += n;
 		sel.oe.y += n;
 		if (sel.ob.y < term.top || sel.ob.y > term.bot ||
-		    sel.oe.y < term.top || sel.oe.y > term.bot) {
+			sel.oe.y < term.top || sel.oe.y > term.bot) {
 			selclear();
 		} else {
 			selnormalize();
@@ -1338,7 +1338,7 @@ tdefcolor(const int *attr, int *npar, int l)
 	case 4: /* direct color in CMYK space */
 	default:
 		fprintf(stderr,
-		        "erresc(38): gfx attr %d unknown\n", attr[*npar]);
+				"erresc(38): gfx attr %d unknown\n", attr[*npar]);
 		break;
 	}
 
@@ -1355,14 +1355,14 @@ tsetattr(const int *attr, int l)
 		switch (attr[i]) {
 		case 0:
 			term.c.attr.mode &= ~(
-				ATTR_BOLD       |
-				ATTR_FAINT      |
-				ATTR_ITALIC     |
+				ATTR_BOLD	   |
+				ATTR_FAINT	  |
+				ATTR_ITALIC	 |
 				ATTR_UNDERLINE  |
-				ATTR_BLINK      |
-				ATTR_REVERSE    |
+				ATTR_BLINK	  |
+				ATTR_REVERSE	|
 				ATTR_INVISIBLE  |
-				ATTR_STRUCK     );
+				ATTR_STRUCK	 );
 			term.c.attr.fg = defaultfg;
 			term.c.attr.bg = defaultbg;
 			break;
@@ -1497,7 +1497,7 @@ tsetmode(int priv, int set, const int *args, int narg)
 			case 25: /* DECTCEM -- Text Cursor Enable Mode */
 				xsetmode(!set, MODE_HIDE);
 				break;
-			case 9:    /* X10 mouse compatibility mode */
+			case 9:	/* X10 mouse compatibility mode */
 				xsetpointermotion(0);
 				xsetmode(0, MODE_MOUSE);
 				xsetmode(set, MODE_MOUSEX10);
@@ -1553,13 +1553,13 @@ tsetmode(int priv, int set, const int *args, int narg)
 				break;
 			/* Not implemented mouse modes. See comments there. */
 			case 1001: /* mouse highlight mode; can hang the
-				      terminal by design when implemented. */
+					  terminal by design when implemented. */
 			case 1005: /* UTF-8 mouse mode; will confuse
-				      applications not supporting UTF-8
-				      and luit. */
+					  applications not supporting UTF-8
+					  and luit. */
 			case 1015: /* urxvt mangled mouse mode; incompatible
-				      and can be mistaken for other control
-				      codes. */
+					  and can be mistaken for other control
+					  codes. */
 				break;
 			default:
 				fprintf(stderr,
@@ -1844,17 +1844,17 @@ osc_color_response(int num, int index, int is_osc4)
 
 	if (xgetcolor(is_osc4 ? num : index, &r, &g, &b)) {
 		fprintf(stderr, "erresc: failed to fetch %s color %d\n",
-		        is_osc4 ? "osc4" : "osc",
-		        is_osc4 ? num : index);
+				is_osc4 ? "osc4" : "osc",
+				is_osc4 ? num : index);
 		return;
 	}
 
 	n = snprintf(buf, sizeof buf, "\033]%s%d;rgb:%02x%02x/%02x%02x/%02x%02x\007",
-	             is_osc4 ? "4;" : "", num, r, r, g, g, b, b);
+				 is_osc4 ? "4;" : "", num, r, r, g, g, b, b);
 	if (n < 0 || n >= sizeof(buf)) {
 		fprintf(stderr, "error: %s while printing %s response\n",
-		        n < 0 ? "snprintf failed" : "truncation occurred",
-		        is_osc4 ? "osc4" : "osc");
+				n < 0 ? "snprintf failed" : "truncation occurred",
+				is_osc4 ? "osc4" : "osc");
 	} else {
 		ttywrite(buf, n, 1);
 	}
@@ -1916,7 +1916,7 @@ strhandle(void)
 				osc_color_response(par, osc_table[j].idx, 0);
 			} else if (xsetcolorname(osc_table[j].idx, p)) {
 				fprintf(stderr, "erresc: invalid %s color: %s\n",
-				        osc_table[j].str, p);
+						osc_table[j].str, p);
 			} else {
 				tfulldirt();
 			}
@@ -1935,7 +1935,7 @@ strhandle(void)
 				if (par == 104 && narg <= 1)
 					return; /* color reset without parameter */
 				fprintf(stderr, "erresc: invalid color j=%d, p=%s\n",
-				        j, p ? p : "(null)");
+						j, p ? p : "(null)");
 			} else {
 				/*
 				 * TODO if defaultbg color is changed, borders
@@ -2531,7 +2531,7 @@ tresize(int col, int row)
 
 	if (col < 1 || row < 1) {
 		fprintf(stderr,
-		        "tresize: error resizing to %dx%d\n", col, row);
+				"tresize: error resizing to %dx%d\n", col, row);
 		return;
 	}
 

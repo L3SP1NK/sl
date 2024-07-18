@@ -13,7 +13,7 @@ options:
 	@echo st build options:
 	@echo "CFLAGS  = $(STCFLAGS)"
 	@echo "LDFLAGS = $(STLDFLAGS)"
-	@echo "CC      = $(CC)"
+	@echo "CC	  = $(CC)"
 
 config.h:
 	cp config.def.h config.h

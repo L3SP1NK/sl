@@ -30,9 +30,9 @@
 #include "util.h"
 
 /* macros */
-#define LENGTH(x)         (sizeof x / sizeof x[0])
+#define LENGTH(x)		 (sizeof x / sizeof x[0])
 #define STRINGTOKEYSYM(X) (XStringToKeySym(X))
-#define TEXTW(X)          (drw_fontset_getwidth(drw, (X)))
+#define TEXTW(X)		  (drw_fontset_getwidth(drw, (X)))
 
 /* enums */
 enum {
@@ -169,7 +169,7 @@ motionnotify(XEvent *e)
 
 	for (i = 0; i < numkeys; i++) {
 		if (!IsModifierKey(keys[i].keysym) && keys[i].pressed == True &&
-		    lostfocus != gainedfocus) {
+			lostfocus != gainedfocus) {
 			printdbg("Pressed key lost focus: %ld\n", keys[i].keysym);
 			lostfocus = i;
 			ispressingkeysym = 0;
@@ -496,7 +496,7 @@ printkey(Key *k, KeySym mod)
 	if (!shift) {
 		for (i = 0; i < numkeys; i++) {
 			if ((keys[i].pressed) && ((keys[i].keysym == XK_Shift_L) ||
-			    (keys[i].keysym == XK_Shift_R) || (keys[i].keysym == XK_Shift_Lock))) {
+				(keys[i].keysym == XK_Shift_R) || (keys[i].keysym == XK_Shift_Lock))) {
 				shift = True;
 				break;
 			}
@@ -645,7 +645,7 @@ unpress(Key *k, KeySym buttonmod)
 	}
 
 	if (enableoverlays && currentoverlay != -1 &&
-	    (k == NULL || !IsModifierKey(k->keysym))) {
+		(k == NULL || !IsModifierKey(k->keysym))) {
 		if (releaseprotect) {
 			releaseprotect = 0;
 		} else {
@@ -984,17 +984,17 @@ usage(char *argv0)
 {
 	fprintf(stderr, "usage: %s [-hdnovDOR] [-g geometry] [-fn font] [-l layers] [-s initial_layer]\n", argv0);
 	fprintf(stderr, "Options:\n");
-	fprintf(stderr, "  -d         - Set Dock Window Type\n");
-	fprintf(stderr, "  -D         - Enable debug\n");
-	fprintf(stderr, "  -O         - Disable overlays\n");
-	fprintf(stderr, "  -R         - Disable press-on-release\n");
-	fprintf(stderr, "  -n         - Do not simulate key presses for X\n");
-	fprintf(stderr, "  -o         - Print to standard output\n");
-	fprintf(stderr, "  -l         - Comma separated list of layers to enable\n");
-	fprintf(stderr, "  -s         - Layer to select on program start\n");
+	fprintf(stderr, "  -d		 - Set Dock Window Type\n");
+	fprintf(stderr, "  -D		 - Enable debug\n");
+	fprintf(stderr, "  -O		 - Disable overlays\n");
+	fprintf(stderr, "  -R		 - Disable press-on-release\n");
+	fprintf(stderr, "  -n		 - Do not simulate key presses for X\n");
+	fprintf(stderr, "  -o		 - Print to standard output\n");
+	fprintf(stderr, "  -l		 - Comma separated list of layers to enable\n");
+	fprintf(stderr, "  -s		 - Layer to select on program start\n");
 	fprintf(stderr, "  -H [int]   - Height fraction, one key row takes 1/x of the screen height\n");
 	fprintf(stderr, "  -fn [font] - Set font (Xft, e.g: DejaVu Sans:bold:size=20)\n");
-	fprintf(stderr, "  -g         - Set the window position or size using the X geometry format\n");
+	fprintf(stderr, "  -g		 - Set the window position or size using the X geometry format\n");
 	exit(1);
 }
 

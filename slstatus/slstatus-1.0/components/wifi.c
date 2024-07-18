@@ -59,7 +59,7 @@
 
 		datastart = (datastart+(strlen(interface)+1));
 		sscanf(datastart + 1, " %*d   %d  %*d  %*d\t\t  %*d\t   "
-		       "%*d\t\t%*d\t\t %*d\t  %*d\t\t %*d", &cur);
+			   "%*d\t\t%*d\t\t %*d\t  %*d\t\t %*d", &cur);
 
 		/* 70 is the max of /proc/net/wireless */
 		return bprintf("%d", (int)((float)cur / 70 * 100));
@@ -75,7 +75,7 @@
 		memset(&wreq, 0, sizeof(struct iwreq));
 		wreq.u.essid.length = IW_ESSID_MAX_SIZE+1;
 		if (esnprintf(wreq.ifr_name, sizeof(wreq.ifr_name), "%s",
-		              interface) < 0)
+					  interface) < 0)
 			return NULL;
 
 		if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
@@ -126,7 +126,7 @@
 		}
 		memset(&zero_bssid, 0, sizeof(zero_bssid));
 		if (memcmp(bssid.i_bssid, zero_bssid,
-		    IEEE80211_ADDR_LEN) == 0) {
+			IEEE80211_ADDR_LEN) == 0) {
 			close(sockfd);
 			return 0;
 		}
@@ -225,7 +225,7 @@
 			len = sizeof(info);
 			if (load_ieee80211req(sockfd, interface, &info, IEEE80211_IOC_STA_INFO, &len)) {
 				rssi_dbm = info.sta.info[0].isi_noise +
- 					         info.sta.info[0].isi_rssi / 2;
+ 							 info.sta.info[0].isi_rssi / 2;
 
 				fmt = bprintf("%d", RSSI_TO_PERC(rssi_dbm));
 			}

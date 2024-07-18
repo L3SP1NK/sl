@@ -76,7 +76,7 @@ dontkillme(void)
 	if (fclose(f)) {
 		if (errno == EACCES)
 			die("slock: unable to disable OOM killer. "
-			    "Make sure to suid or sgid slock.\n");
+				"Make sure to suid or sgid slock.\n");
 		else
 			die("slock: fclose %s: %s\n", oomfile, strerror(errno));
 	}
@@ -104,7 +104,7 @@ gethash(void)
 		struct spwd *sp;
 		if (!(sp = getspnam(pw->pw_name)))
 			die("slock: getspnam: cannot retrieve shadow entry. "
-			    "Make sure to suid or sgid slock.\n");
+				"Make sure to suid or sgid slock.\n");
 		hash = sp->sp_pwdp;
 	}
 #else
@@ -112,11 +112,11 @@ gethash(void)
 #ifdef __OpenBSD__
 		if (!(pw = getpwuid_shadow(getuid())))
 			die("slock: getpwnam_shadow: cannot retrieve shadow entry. "
-			    "Make sure to suid or sgid slock.\n");
+				"Make sure to suid or sgid slock.\n");
 		hash = pw->pw_passwd;
 #else
 		die("slock: getpwuid: cannot retrieve shadow entry. "
-		    "Make sure to suid or sgid slock.\n");
+			"Make sure to suid or sgid slock.\n");
 #endif /* __OpenBSD__ */
 	}
 #endif /* HAVE_SHADOW_H */
@@ -126,7 +126,7 @@ gethash(void)
 
 static void
 readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
-       const char *hash)
+	   const char *hash)
 {
 	XRRScreenChangeNotifyEvent *rre;
 	char buf[32], passwd[256], *inputhash;
@@ -151,10 +151,10 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 					ksym = (ksym - XK_KP_0) + XK_0;
 			}
 			if (IsFunctionKey(ksym) ||
-			    IsKeypadKey(ksym) ||
-			    IsMiscFunctionKey(ksym) ||
-			    IsPFKey(ksym) ||
-			    IsPrivateKeypadKey(ksym))
+				IsKeypadKey(ksym) ||
+				IsMiscFunctionKey(ksym) ||
+				IsPFKey(ksym) ||
+				IsPrivateKeypadKey(ksym))
 				continue;
 			switch (ksym) {
 			case XK_Return:
@@ -181,7 +181,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 				break;
 			default:
 				if (num && !iscntrl((int)buf[0]) &&
-				    (len + num < sizeof(passwd))) {
+					(len + num < sizeof(passwd))) {
 					memcpy(passwd + len, buf, num);
 					len += num;
 				}
@@ -191,8 +191,8 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 			if (running && oldc != color) {
 				for (screen = 0; screen < nscreens; screen++) {
 					XSetWindowBackground(dpy,
-					                     locks[screen]->win,
-					                     locks[screen]->colors[color]);
+										 locks[screen]->win,
+										 locks[screen]->colors[color]);
 					XClearWindow(dpy, locks[screen]->win);
 				}
 				oldc = color;
@@ -202,12 +202,12 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 			for (screen = 0; screen < nscreens; screen++) {
 				if (locks[screen]->win == rre->window) {
 					if (rre->rotation == RR_Rotate_90 ||
-					    rre->rotation == RR_Rotate_270)
+						rre->rotation == RR_Rotate_270)
 						XResizeWindow(dpy, locks[screen]->win,
-						              rre->height, rre->width);
+									  rre->height, rre->width);
 					else
 						XResizeWindow(dpy, locks[screen]->win,
-						              rre->width, rre->height);
+									  rre->width, rre->height);
 					XClearWindow(dpy, locks[screen]->win);
 					break;
 				}
@@ -237,7 +237,7 @@ lockscreen(Display *dpy, struct xrandr *rr, int screen)
 
 	for (i = 0; i < NUMCOLS; i++) {
 		XAllocNamedColor(dpy, DefaultColormap(dpy, lock->screen),
-		                 colorname[i], &color, &dummy);
+						 colorname[i], &color, &dummy);
 		lock->colors[i] = color.pixel;
 	}
 
@@ -245,28 +245,28 @@ lockscreen(Display *dpy, struct xrandr *rr, int screen)
 	wa.override_redirect = 1;
 	wa.background_pixel = lock->colors[INIT];
 	lock->win = XCreateWindow(dpy, lock->root, 0, 0,
-	                          DisplayWidth(dpy, lock->screen),
-	                          DisplayHeight(dpy, lock->screen),
-	                          0, DefaultDepth(dpy, lock->screen),
-	                          CopyFromParent,
-	                          DefaultVisual(dpy, lock->screen),
-	                          CWOverrideRedirect | CWBackPixel, &wa);
+							  DisplayWidth(dpy, lock->screen),
+							  DisplayHeight(dpy, lock->screen),
+							  0, DefaultDepth(dpy, lock->screen),
+							  CopyFromParent,
+							  DefaultVisual(dpy, lock->screen),
+							  CWOverrideRedirect | CWBackPixel, &wa);
 	lock->pmap = XCreateBitmapFromData(dpy, lock->win, curs, 8, 8);
 	invisible = XCreatePixmapCursor(dpy, lock->pmap, lock->pmap,
-	                                &color, &color, 0, 0);
+									&color, &color, 0, 0);
 	XDefineCursor(dpy, lock->win, invisible);
 
 	/* Try to grab mouse pointer *and* keyboard for 600ms, else fail the lock */
 	for (i = 0, ptgrab = kbgrab = -1; i < 6; i++) {
 		if (ptgrab != GrabSuccess) {
 			ptgrab = XGrabPointer(dpy, lock->root, False,
-			                      ButtonPressMask | ButtonReleaseMask |
-			                      PointerMotionMask, GrabModeAsync,
-			                      GrabModeAsync, None, invisible, CurrentTime);
+								  ButtonPressMask | ButtonReleaseMask |
+								  PointerMotionMask, GrabModeAsync,
+								  GrabModeAsync, None, invisible, CurrentTime);
 		}
 		if (kbgrab != GrabSuccess) {
 			kbgrab = XGrabKeyboard(dpy, lock->root, True,
-			                       GrabModeAsync, GrabModeAsync, CurrentTime);
+								   GrabModeAsync, GrabModeAsync, CurrentTime);
 		}
 
 		/* input is grabbed: we can lock the screen */
@@ -281,7 +281,7 @@ lockscreen(Display *dpy, struct xrandr *rr, int screen)
 
 		/* retry on AlreadyGrabbed but fail on other errors */
 		if ((ptgrab != AlreadyGrabbed && ptgrab != GrabSuccess) ||
-		    (kbgrab != AlreadyGrabbed && kbgrab != GrabSuccess))
+			(kbgrab != AlreadyGrabbed && kbgrab != GrabSuccess))
 			break;
 
 		usleep(100000);
@@ -290,10 +290,10 @@ lockscreen(Display *dpy, struct xrandr *rr, int screen)
 	/* we couldn't grab all input: fail out */
 	if (ptgrab != GrabSuccess)
 		fprintf(stderr, "slock: unable to grab mouse pointer for screen %d\n",
-		        screen);
+				screen);
 	if (kbgrab != GrabSuccess)
 		fprintf(stderr, "slock: unable to grab keyboard for screen %d\n",
-		        screen);
+				screen);
 	return NULL;
 }
 
@@ -327,12 +327,12 @@ main(int argc, char **argv) {
 	errno = 0;
 	if (!(pwd = getpwnam(user)))
 		die("slock: getpwnam %s: %s\n", user,
-		    errno ? strerror(errno) : "user entry not found");
+			errno ? strerror(errno) : "user entry not found");
 	duid = pwd->pw_uid;
 	errno = 0;
 	if (!(grp = getgrnam(group)))
 		die("slock: getgrnam %s: %s\n", group,
-		    errno ? strerror(errno) : "group entry not found");
+			errno ? strerror(errno) : "group entry not found");
 	dgid = grp->gr_gid;
 
 #ifdef __linux__

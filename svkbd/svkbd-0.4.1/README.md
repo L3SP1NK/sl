@@ -26,23 +26,23 @@ Layouts
 The following layouts are available:
 
 * **Mobile Layouts:**
-    * ``mobile-intl`` - A small international layout optimised for mobile devices. This layout consists of multiple layers which
-        can be switched on the fly, and overlays that appear on long-press of certain keys, adding input ability for
-        diacritics and other variants, as well as some emoji. The layers are:
-        * a basic qwerty layer
-        * a layer for numeric input, arrows, and punctuation
-        * a cyrillic layer (ЙЦУКЕН based); the э key is moved to an overlay on е
-        * a dialer/numeric layer
-        * an arrow layer
-        * a more minimal qwerty layer (bigger keys) for smaller screens/larger fingers.
-    * ``mobile-plain`` - This is a plain layout with only a qwerty layer and numeric/punctuation layer. It was
-        originally made for [sxmo](https://sr.ht/~mil/Sxmo/).
-    * ``mobile-simple`` - This is a more minimalistic layout that is more similar to what Android and iOS offer.
+	* ``mobile-intl`` - A small international layout optimised for mobile devices. This layout consists of multiple layers which
+		can be switched on the fly, and overlays that appear on long-press of certain keys, adding input ability for
+		diacritics and other variants, as well as some emoji. The layers are:
+		* a basic qwerty layer
+		* a layer for numeric input, arrows, and punctuation
+		* a cyrillic layer (ЙЦУКЕН based); the э key is moved to an overlay on е
+		* a dialer/numeric layer
+		* an arrow layer
+		* a more minimal qwerty layer (bigger keys) for smaller screens/larger fingers.
+	* ``mobile-plain`` - This is a plain layout with only a qwerty layer and numeric/punctuation layer. It was
+		originally made for [sxmo](https://sr.ht/~mil/Sxmo/).
+	* ``mobile-simple`` - This is a more minimalistic layout that is more similar to what Android and iOS offer.
 * **Traditional layouts**:
-    * ``en`` - An english layout without layers (QWERTY)
-    * ``de`` - A german layout (QWERTZ)
-    * ``ru`` - A russian layout (ЙЦУКЕН)
-    * ``sh`` - A serbo-croatian layout using latin script (QWERTZ)
+	* ``en`` - An english layout without layers (QWERTY)
+	* ``de`` - A german layout (QWERTZ)
+	* ``ru`` - A russian layout (ЙЦУКЕН)
+	* ``sh`` - A serbo-croatian layout using latin script (QWERTZ)
 
 Usage
 -----

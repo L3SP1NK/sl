@@ -28,16 +28,16 @@ index 47c615e..d7439a3 100644
 @@ -15,10 +15,12 @@ PKG_CONFIG = pkg-config
  # includes and libs
  INCS = -I$(X11INC) \
-        `$(PKG_CONFIG) --cflags fontconfig` \
--       `$(PKG_CONFIG) --cflags freetype2`
+		`$(PKG_CONFIG) --cflags fontconfig` \
+-	   `$(PKG_CONFIG) --cflags freetype2`
 -LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender\
-+       `$(PKG_CONFIG) --cflags freetype2` \
-+       `$(PKG_CONFIG) --cflags harfbuzz`
++	   `$(PKG_CONFIG) --cflags freetype2` \
++	   `$(PKG_CONFIG) --cflags harfbuzz`
 +LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender \
-        `$(PKG_CONFIG) --libs fontconfig` \
--       `$(PKG_CONFIG) --libs freetype2`
-+       `$(PKG_CONFIG) --libs freetype2` \
-+       `$(PKG_CONFIG) --libs harfbuzz`
+		`$(PKG_CONFIG) --libs fontconfig` \
+-	   `$(PKG_CONFIG) --libs freetype2`
++	   `$(PKG_CONFIG) --libs freetype2` \
++	   `$(PKG_CONFIG) --libs harfbuzz`
  
  # flags
  STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
@@ -487,7 +487,7 @@ index 27e81d1..5d19ed7 100644
 -		if (f >= frclen) {
 -			if (!font->set)
 -				font->set = FcFontSort(0, font->pattern,
--				                       1, 0, &fcres);
+-									   1, 0, &fcres);
 -			fcsets[0] = font->set;
  
 -			/*

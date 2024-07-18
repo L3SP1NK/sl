@@ -13,9 +13,9 @@ https://st.suckless.org/patches/scrollback/
 adapted for st(1) 0.8.4 and scroll(1).
 ---
  config.def.h | 10 +++++-----
- st.c         |  5 +++++
- st.h         |  1 +
- x.c          |  2 ++
+ st.c		 |  5 +++++
+ st.h		 |  1 +
+ x.c		  |  2 ++
  4 files changed, 13 insertions(+), 5 deletions(-)
 
 diff --git a/config.def.h b/config.def.h
@@ -26,16 +26,16 @@ index 6f05dce..62e87da 100644
   * Beware that overloading Button1 will disable the selection.
   */
  static MouseShortcut mshortcuts[] = {
--	/* mask                 button   function        argument       release */
--	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
--	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
-+	/* mask                 button   function        argument      release alt */
-+	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},           1 },
-+	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\033[5;2~"}, 0, -1 },
- 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
--	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
-+	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\033[6;2~"}, 0, -1 },
- 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
+-	/* mask				 button   function		argument	   release */
+-	{ XK_ANY_MOD,		   Button2, selpaste,	   {.i = 0},	  1 },
+-	{ ShiftMask,			Button4, ttysend,		{.s = "\033[5;2~"} },
++	/* mask				 button   function		argument	  release alt */
++	{ XK_ANY_MOD,		   Button2, selpaste,	   {.i = 0},		   1 },
++	{ XK_ANY_MOD,		   Button4, ttysend,		{.s = "\033[5;2~"}, 0, -1 },
+ 	{ XK_ANY_MOD,		   Button4, ttysend,		{.s = "\031"} },
+-	{ ShiftMask,			Button5, ttysend,		{.s = "\033[6;2~"} },
++	{ XK_ANY_MOD,		   Button5, ttysend,		{.s = "\033[6;2~"}, 0, -1 },
+ 	{ XK_ANY_MOD,		   Button5, ttysend,		{.s = "\005"} },
  };
 
 diff --git a/st.c b/st.c
@@ -81,10 +81,10 @@ index 210f184..210dde9 100644
 @@ -446,6 +447,7 @@ mouseaction(XEvent *e, uint release)
  	for (ms = mshortcuts; ms < mshortcuts + LEN(mshortcuts); ms++) {
  		if (ms->release == release &&
- 		    ms->button == e->xbutton.button &&
-+		    (!ms->altscrn || (ms->altscrn == (tisaltscr() ? 1 : -1))) &&
- 		    (match(ms->mod, state) ||  /* exact or forced */
- 		     match(ms->mod, state & ~forcemousemod))) {
+ 			ms->button == e->xbutton.button &&
++			(!ms->altscrn || (ms->altscrn == (tisaltscr() ? 1 : -1))) &&
+ 			(match(ms->mod, state) ||  /* exact or forced */
+ 			 match(ms->mod, state & ~forcemousemod))) {
  			ms->func(&(ms->arg));
 --
 2.27.0

@@ -31,9 +31,9 @@ ip(const char *interface, unsigned short sa_family)
 			continue;
 
 		s = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in6),
-		                host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
+						host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
 		if (!strcmp(ifa->ifa_name, interface) &&
-		    (ifa->ifa_addr->sa_family == sa_family)) {
+			(ifa->ifa_addr->sa_family == sa_family)) {
 			freeifaddrs(ifaddr);
 			if (s != 0) {
 				warn("getnameinfo: %s", gai_strerror(s));

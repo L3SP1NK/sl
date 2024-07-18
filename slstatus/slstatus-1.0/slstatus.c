@@ -35,7 +35,7 @@ difftimespec(struct timespec *res, struct timespec *a, struct timespec *b)
 {
 	res->tv_sec = a->tv_sec - b->tv_sec - (a->tv_nsec < b->tv_nsec);
 	res->tv_nsec = a->tv_nsec - b->tv_nsec +
-	               (a->tv_nsec < b->tv_nsec) * 1E9;
+				   (a->tv_nsec < b->tv_nsec) * 1E9;
 }
 
 static void
@@ -91,7 +91,7 @@ main(int argc, char *argv[])
 				res = unknown_str;
 
 			if ((ret = esnprintf(status + len, sizeof(status) - len,
-			                     args[i].fmt, res)) < 0)
+								 args[i].fmt, res)) < 0)
 				break;
 
 			len += ret;
@@ -118,8 +118,8 @@ main(int argc, char *argv[])
 			difftimespec(&wait, &intspec, &diff);
 
 			if (wait.tv_sec >= 0 &&
-			    nanosleep(&wait, NULL) < 0 &&
-			    errno != EINTR)
+				nanosleep(&wait, NULL) < 0 &&
+				errno != EINTR)
 					die("nanosleep:");
 		}
 	} while (!done);

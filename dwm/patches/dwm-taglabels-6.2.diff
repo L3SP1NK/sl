@@ -1,7 +1,7 @@
 diff -pu dwm.git/config.def.h dwm.programtags/config.def.h
 --- dwm.git/config.def.h	2021-02-27 20:04:32.030570909 -0600
 +++ dwm.programtags/config.def.h	2021-03-15 16:24:23.620864957 -0500
-@@ -21,6 +21,10 @@ static const char *colors[][3]      = {
+@@ -21,6 +21,10 @@ static const char *colors[][3]	  = {
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
  

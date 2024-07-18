@@ -13,7 +13,7 @@ options:
 	@echo tabbed build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
+	@echo "CC	   = ${CC}"
 
 .c.o:
 	@echo CC $<

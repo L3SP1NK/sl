@@ -2,7 +2,7 @@ diff --git a/config.def.h b/config.def.h
 index 1c0b587..d4b11fc 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -20,6 +20,7 @@ static const char *colors[][3]      = {
+@@ -20,6 +20,7 @@ static const char *colors[][3]	  = {
  
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };

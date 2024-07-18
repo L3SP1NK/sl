@@ -22,18 +22,18 @@
 #define IS_TRUECOL(x)		(1 << 24 & (x))
 
 enum glyph_attribute {
-	ATTR_NULL       = 0,
-	ATTR_BOLD       = 1 << 0,
-	ATTR_FAINT      = 1 << 1,
-	ATTR_ITALIC     = 1 << 2,
+	ATTR_NULL	   = 0,
+	ATTR_BOLD	   = 1 << 0,
+	ATTR_FAINT	  = 1 << 1,
+	ATTR_ITALIC	 = 1 << 2,
 	ATTR_UNDERLINE  = 1 << 3,
-	ATTR_BLINK      = 1 << 4,
-	ATTR_REVERSE    = 1 << 5,
+	ATTR_BLINK	  = 1 << 4,
+	ATTR_REVERSE	= 1 << 5,
 	ATTR_INVISIBLE  = 1 << 6,
-	ATTR_STRUCK     = 1 << 7,
-	ATTR_WRAP       = 1 << 8,
-	ATTR_WIDE       = 1 << 9,
-	ATTR_WDUMMY     = 1 << 10,
+	ATTR_STRUCK	 = 1 << 7,
+	ATTR_WRAP	   = 1 << 8,
+	ATTR_WIDE	   = 1 << 9,
+	ATTR_WDUMMY	 = 1 << 10,
 	ATTR_BOLD_FAINT = ATTR_BOLD | ATTR_FAINT,
 };
 
@@ -62,10 +62,10 @@ typedef uint_least32_t Rune;
 
 #define Glyph Glyph_
 typedef struct {
-	Rune u;           /* character code */
-	ushort mode;      /* attribute flags */
-	uint32_t fg;      /* foreground  */
-	uint32_t bg;      /* background  */
+	Rune u;		   /* character code */
+	ushort mode;	  /* attribute flags */
+	uint32_t fg;	  /* foreground  */
+	uint32_t bg;	  /* background  */
 } Glyph;
 
 typedef Glyph *Line;

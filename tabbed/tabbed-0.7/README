@@ -14,7 +14,7 @@ the /usr/local namespace by default).
 Afterwards enter the following command to build and install tabbed
 (if necessary as root):
 
-    make clean install
+	make clean install
 
 Running tabbed
 --------------

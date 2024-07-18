@@ -2,7 +2,7 @@
 
 /* Appearance */
 static const unsigned int borderpx	= 0;	/* border pixel of windows */
-static const Gap default_gap		= {.isgap = 1, .realgap = 15, .gappx = 15};
+static const Gap default_gap		= {.isgap = 1, .realgap = 24, .gappx = 24};
 static const unsigned int snap		= 0;	/* snap pixel */
 
 static const unsigned int systraypinning	= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */

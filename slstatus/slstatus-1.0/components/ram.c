@@ -13,10 +13,10 @@
 		uintmax_t free;
 
 		if (pscanf("/proc/meminfo",
-		           "MemTotal: %ju kB\n"
-		           "MemFree: %ju kB\n"
-		           "MemAvailable: %ju kB\n",
-		           &free, &free, &free) != 3)
+				   "MemTotal: %ju kB\n"
+				   "MemFree: %ju kB\n"
+				   "MemAvailable: %ju kB\n",
+				   &free, &free, &free) != 3)
 			return NULL;
 
 		return fmt_human(free * 1024, 1024);
@@ -29,12 +29,12 @@
 		int percent;
 
 		if (pscanf("/proc/meminfo",
-		           "MemTotal: %ju kB\n"
-		           "MemFree: %ju kB\n"
-		           "MemAvailable: %ju kB\n"
-		           "Buffers: %ju kB\n"
-		           "Cached: %ju kB\n",
-		           &total, &free, &buffers, &buffers, &cached) != 5)
+				   "MemTotal: %ju kB\n"
+				   "MemFree: %ju kB\n"
+				   "MemAvailable: %ju kB\n"
+				   "Buffers: %ju kB\n"
+				   "Cached: %ju kB\n",
+				   &total, &free, &buffers, &buffers, &cached) != 5)
 			return NULL;
 
 		if (total == 0)
@@ -50,7 +50,7 @@
 		uintmax_t total;
 
 		if (pscanf("/proc/meminfo", "MemTotal: %ju kB\n", &total)
-		    != 1)
+			!= 1)
 			return NULL;
 
 		return fmt_human(total * 1024, 1024);
@@ -62,12 +62,12 @@
 		uintmax_t total, free, buffers, cached, used;
 
 		if (pscanf("/proc/meminfo",
-		           "MemTotal: %ju kB\n"
-		           "MemFree: %ju kB\n"
-		           "MemAvailable: %ju kB\n"
-		           "Buffers: %ju kB\n"
-		           "Cached: %ju kB\n",
-		           &total, &free, &buffers, &buffers, &cached) != 5)
+				   "MemTotal: %ju kB\n"
+				   "MemFree: %ju kB\n"
+				   "MemAvailable: %ju kB\n"
+				   "Buffers: %ju kB\n"
+				   "Cached: %ju kB\n",
+				   &total, &free, &buffers, &buffers, &cached) != 5)
 			return NULL;
 
 		used = (total - free - buffers - cached);
@@ -160,7 +160,7 @@
 
 		len = sizeof(struct vmtotal);
 		if (sysctl(mib, 2, &vm_stats, &len, NULL, 0) < 0
-		    || !len)
+			|| !len)
 			return NULL;
 
 		return fmt_human(vm_stats.t_free * getpagesize(), 1024);
@@ -173,7 +173,7 @@
 
 		len = sizeof(npages);
 		if (sysctlbyname("vm.stats.vm.v_page_count",
-		                 &npages, &len, NULL, 0) < 0 || !len)
+						 &npages, &len, NULL, 0) < 0 || !len)
 			return NULL;
 
 		return fmt_human(npages * getpagesize(), 1024);
@@ -187,11 +187,11 @@
 
 		len = sizeof(npages);
 		if (sysctlbyname("vm.stats.vm.v_page_count",
-		                 &npages, &len, NULL, 0) < 0 || !len)
+						 &npages, &len, NULL, 0) < 0 || !len)
 			return NULL;
 
 		if (sysctlbyname("vm.stats.vm.v_active_count",
-		                 &active, &len, NULL, 0) < 0 || !len)
+						 &active, &len, NULL, 0) < 0 || !len)
 			return NULL;
 
 		return bprintf("%d", active * 100 / npages);
@@ -204,7 +204,7 @@
 
 		len = sizeof(active);
 		if (sysctlbyname("vm.stats.vm.v_active_count",
-		                 &active, &len, NULL, 0) < 0 || !len)
+						 &active, &len, NULL, 0) < 0 || !len)
 			return NULL;
 
 		return fmt_human(active * getpagesize(), 1024);

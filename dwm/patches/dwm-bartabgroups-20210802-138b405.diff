@@ -5,15 +5,15 @@ Subject: [PATCH] bartabgroups updated to work with 138b405
 
 ---
  config.def.h |  11 +++++
- dwm.c        | 112 ++++++++++++++++++++++++++++++++++++++++++++++-----
+ dwm.c		| 112 ++++++++++++++++++++++++++++++++++++++++++++++-----
  2 files changed, 112 insertions(+), 11 deletions(-)
 
 diff --git a/config.def.h b/config.def.h
 index a2ac963..82accf1 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -16,6 +16,8 @@ static const char *colors[][3]      = {
- 	/*               fg         bg         border   */
+@@ -16,6 +16,8 @@ static const char *colors[][3]	  = {
+ 	/*			   fg		 bg		 border   */
  	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
  	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 +	[SchemeTabActive]  = { col_gray2, col_gray3,  col_gray2 },
@@ -21,22 +21,22 @@ index a2ac963..82accf1 100644
  };
  
  /* tagging */
-@@ -37,6 +39,15 @@ static const int nmaster     = 1;    /* number of clients in master area */
- static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+@@ -37,6 +39,15 @@ static const int nmaster	 = 1;	/* number of clients in master area */
+ static const int resizehints = 1;	/* 1 means respect size hints in tiled resizals */
  static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
  
 +/* Bartabgroups properties */
-+#define BARTAB_BORDERS 1       // 0 = off, 1 = on
++#define BARTAB_BORDERS 1	   // 0 = off, 1 = on
 +#define BARTAB_BOTTOMBORDER 1  // 0 = off, 1 = on
 +#define BARTAB_TAGSINDICATOR 1 // 0 = off, 1 = on if >1 client/view tag, 2 = always on
-+#define BARTAB_TAGSPX 5        // # pixels for tag grid boxes
-+#define BARTAB_TAGSROWS 3      // # rows in tag grid (9 tags, e.g. 3x3)
++#define BARTAB_TAGSPX 5		// # pixels for tag grid boxes
++#define BARTAB_TAGSROWS 3	  // # rows in tag grid (9 tags, e.g. 3x3)
 +static void (*bartabmonfns[])(Monitor *) = { monocle /* , customlayoutfn */ };
 +static void (*bartabfloatfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 +
  static const Layout layouts[] = {
- 	/* symbol     arrange function */
- 	{ "[]=",      tile },    /* first entry is default */
+ 	/* symbol	 arrange function */
+ 	{ "[]=",	  tile },	/* first entry is default */
 diff --git a/dwm.c b/dwm.c
 index 5e4d494..1839a56 100644
 --- a/dwm.c
@@ -48,8 +48,8 @@ index 5e4d494..1839a56 100644
 -enum { SchemeNorm, SchemeSel }; /* color schemes */
 +enum { SchemeNorm, SchemeSel, SchemeTabActive, SchemeTabInactive }; /* color schemes */
  enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
-        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
-        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
+		NetWMFullscreen, NetActiveWindow, NetWMWindowType,
+		NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
 @@ -378,6 +378,98 @@ applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact)
  	return *x != c->x || *y != c->y || *w != c->w || *h != c->h;
  }

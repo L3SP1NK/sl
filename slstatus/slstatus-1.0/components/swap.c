@@ -38,9 +38,9 @@
 		while (left > 0 && getline(&line, &line_len, fp) >= 0) {
 			for (i = 0; i < LEN(ent); i++) {
 				if (ent[i].var &&
-				    !strncmp(line, ent[i].name, ent[i].len)) {
+					!strncmp(line, ent[i].name, ent[i].len)) {
 					sscanf(line + ent[i].len + 1,
-					       "%ld kB\n", ent[i].var);
+						   "%ld kB\n", ent[i].var);
 					left--;
 					break;
 				}

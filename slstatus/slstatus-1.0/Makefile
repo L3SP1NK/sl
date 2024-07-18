@@ -50,8 +50,8 @@ dist:
 	rm -rf "slstatus-$(VERSION)"
 	mkdir -p "slstatus-$(VERSION)/components"
 	cp -R LICENSE Makefile README config.mk config.def.h \
-	      arg.h slstatus.h slstatus.c $(REQ:=.c) $(REQ:=.h) \
-	      slstatus.1 "slstatus-$(VERSION)"
+		  arg.h slstatus.h slstatus.c $(REQ:=.c) $(REQ:=.h) \
+		  slstatus.1 "slstatus-$(VERSION)"
 	cp -R $(COM:=.c) "slstatus-$(VERSION)/components"
 	tar -cf - "slstatus-$(VERSION)" | gzip -c > "slstatus-$(VERSION).tar.gz"
 	rm -rf "slstatus-$(VERSION)"

@@ -19,7 +19,7 @@ options:
 	@echo "CFLAGS   = ${SVKBD_CFLAGS}"
 	@echo "CPPLAGS  = ${SVKBD_CPPFLAGS}"
 	@echo "LDFLAGS  = ${SVKBD_LDFLAGS}"
-	@echo "CC       = ${CC}"
+	@echo "CC	   = ${CC}"
 
 config.h:
 	cp config.def.h $@

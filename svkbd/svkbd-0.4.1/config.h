@@ -10,7 +10,7 @@ static const char *defaultfonts[] = {
 	"DejaVu Sans:bold:size=22"
 };
 static const char *defaultcolors[SchemeLast][2] = {
-	/*     fg         bg       */
+	/*	 fg		 bg	   */
 	[SchemeNorm] = { "#bbbbbb", "#132a33" },
 	[SchemeNormShift] = { "#008ac0", "#132a33" },
 	[SchemeNormABC] = { "#ffffff", "#14313d" },

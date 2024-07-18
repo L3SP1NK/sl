@@ -2,23 +2,23 @@
 
 # Function to format speed with appropriate unit
 format_speed() {
-    local speed=$1
-    if (( $(echo "$speed < 0.1" | bc -l) )); then
-        echo ""
-    elif (( $(echo "$speed < 1024" | bc -l) )); then
-        printf "%.0fB" "$speed"
-    elif (( $(echo "$speed < 1048576" | bc -l) )); then
-        printf "%.1fKB" "$(echo "scale=1; $speed / 1024" | bc)"
-    else
-        printf "%.2fMB" "$(echo "scale=2; $speed / 1048576" | bc)"
-    fi
+	local speed=$1
+	if (( $(echo "$speed < 0.1" | bc -l) )); then
+		echo ""
+	elif (( $(echo "$speed < 1024" | bc -l) )); then
+		printf "%.0fB" "$speed"
+	elif (( $(echo "$speed < 1048576" | bc -l) )); then
+		printf "%.1fKB" "$(echo "scale=1; $speed / 1024" | bc)"
+	else
+		printf "%.2fMB" "$(echo "scale=2; $speed / 1048576" | bc)"
+	fi
 }
 
 # Function to get network usage
 get_network_usage() {
-    local interface="$1"
-    local direction="$2"
-    grep "$interface:" /proc/net/dev | awk "{print \$$direction}"
+	local interface="$1"
+	local direction="$2"
+	grep "$interface:" /proc/net/dev | awk "{print \$$direction}"
 }
 
 # Main script
@@ -44,16 +44,16 @@ tx_formatted=$(format_speed $tx_speed)
 # Prepare output
 output=""
 if [ -n "$rx_formatted" ]; then
-    output+="→$rx_formatted"
+	output+="→$rx_formatted"
 fi
 if [ -n "$tx_formatted" ]; then
-    if [ -n "$output" ]; then
-        output+="/"
-    fi
-    output+="←$tx_formatted↑"
+	if [ -n "$output" ]; then
+		output+="/"
+	fi
+	output+="←$tx_formatted↑"
 fi
 
 # Print output if not empty
 if [ -n "$output" ]; then
-    echo "$output"
+	echo "$output"
 fi

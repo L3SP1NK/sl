@@ -8,20 +8,20 @@ getWatt() {
 
 	total_power=0
 	for domain in /sys/class/powercap/intel-rapl/intel-rapl:*; do
-	    if [ -f "$domain/energy_uj" ]; then
-	        energy_uj=$(cat "$domain/energy_uj")
-	        total_power=$((total_power + energy_uj))
-	    fi
+		if [ -f "$domain/energy_uj" ]; then
+			energy_uj=$(cat "$domain/energy_uj")
+			total_power=$((total_power + energy_uj))
+		fi
 	done
 
 	sleep 1
 
 	new_total_power=0
 	for domain in /sys/class/powercap/intel-rapl/intel-rapl:*; do
-	    if [ -f "$domain/energy_uj" ]; then
-	        energy_uj=$(cat "$domain/energy_uj")
-	        new_total_power=$((new_total_power + energy_uj))
-	    fi
+		if [ -f "$domain/energy_uj" ]; then
+			energy_uj=$(cat "$domain/energy_uj")
+			new_total_power=$((new_total_power + energy_uj))
+		fi
 	done
 
 	power_diff=$((new_total_power - total_power))

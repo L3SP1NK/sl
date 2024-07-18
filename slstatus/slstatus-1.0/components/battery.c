@@ -18,18 +18,18 @@
 	#define POWER_SUPPLY_CHARGE   "/sys/class/power_supply/%s/charge_now"
 	#define POWER_SUPPLY_ENERGY   "/sys/class/power_supply/%s/energy_now"
 	#define POWER_SUPPLY_CURRENT  "/sys/class/power_supply/%s/current_now"
-	#define POWER_SUPPLY_POWER    "/sys/class/power_supply/%s/power_now"
+	#define POWER_SUPPLY_POWER	"/sys/class/power_supply/%s/power_now"
 
 	static const char *
 	pick(const char *bat, const char *f1, const char *f2, char *path,
-	     size_t length)
+		 size_t length)
 	{
 		if (esnprintf(path, length, f1, bat) > 0 &&
-		    access(path, R_OK) == 0)
+			access(path, R_OK) == 0)
 			return f1;
 
 		if (esnprintf(path, length, f2, bat) > 0 &&
-		    access(path, R_OK) == 0)
+			access(path, R_OK) == 0)
 			return f2;
 
 		return NULL;
@@ -56,9 +56,9 @@
 			char *state;
 			char *symbol;
 		} map[] = {
-			{ "Charging",    "+" },
+			{ "Charging",	"+" },
 			{ "Discharging", "-" },
-			{ "Full",        "o" },
+			{ "Full",		"o" },
 			{ "Not charging", "o" },
 		};
 		size_t i;
@@ -89,14 +89,14 @@
 			return NULL;
 
 		if (!pick(bat, POWER_SUPPLY_CHARGE, POWER_SUPPLY_ENERGY, path,
-		          sizeof(path)) ||
-		    pscanf(path, "%ju", &charge_now) < 0)
+				  sizeof(path)) ||
+			pscanf(path, "%ju", &charge_now) < 0)
 			return NULL;
 
 		if (!strcmp(state, "Discharging")) {
 			if (!pick(bat, POWER_SUPPLY_CURRENT, POWER_SUPPLY_POWER, path,
-			          sizeof(path)) ||
-			    pscanf(path, "%ju", &current_now) < 0)
+					  sizeof(path)) ||
+				pscanf(path, "%ju", &current_now) < 0)
 				return NULL;
 
 			if (current_now == 0)
@@ -155,8 +155,8 @@
 			unsigned int state;
 			char *symbol;
 		} map[] = {
-			{ APM_AC_ON,      "+" },
-			{ APM_AC_OFF,     "-" },
+			{ APM_AC_ON,	  "+" },
+			{ APM_AC_OFF,	 "-" },
 		};
 		struct apm_power_info apm_info;
 		size_t i;
@@ -239,7 +239,7 @@
 
 		len = sizeof(rem);
 		if (sysctlbyname(BATTERY_TIME, &rem, &len, NULL, 0) < 0 || !len
-		    || rem < 0)
+			|| rem < 0)
 			return NULL;
 
 		return bprintf("%uh %02um", rem / 60, rem % 60);

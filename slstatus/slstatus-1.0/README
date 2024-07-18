@@ -51,7 +51,7 @@ Edit config.mk to match your local setup (slstatus is installed into the
 Afterwards enter the following command to build and install slstatus (if
 necessary as root):
 
-    make clean install
+	make clean install
 
 
 Running slstatus

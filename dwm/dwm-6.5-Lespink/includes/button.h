@@ -1,7 +1,9 @@
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+
 static Button buttons[] = {
 	/* click				event mask	button			function		argument */
+	{ ClkStatusText,		0,			Button1,		spawn,			{.v = calendar } },
 	{ ClkRootWin,			0,			Button3,		spawn,			{.v = desktop_appmenu } },
 	{ ClkClientWin,			MODKEY,		Button1,		movemouse,		{0} },
 	{ ClkClientWin,			MODKEY,		Button3,		resizemouse,	{0} },
@@ -19,4 +21,3 @@ static Button buttons[] = {
 	{ ClkTagBar,			0,			Button4,		shiftview,		{.i = +1 } },
 	{ ClkTagBar,			0,			Button5,		shiftview,		{.i = -1 } },
 };
-

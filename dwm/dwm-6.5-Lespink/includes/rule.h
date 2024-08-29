@@ -14,6 +14,9 @@ static const Rule rules[] = {
 	{ "Xzoom",		NULL,	   "xzoom x4", 0,			1,		   -1 },
 	{ "Notes",		NULL,	   NULL,	   0,			1,		   -1 },
 	{ "Telegram",	NULL,	   NULL,	   0,			1,		   -1 },
+	{ "Zenity",		NULL,	   NULL,	   0,			1,		   -1 },
+	{ "Suspend",	NULL,	   NULL,	   0,			1,		   -1 },
+	{ NULL,			NULL,	   "suspend",	   0,			1,		   -1 },
 
 };
 

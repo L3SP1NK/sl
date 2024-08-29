@@ -92,7 +92,8 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = select_kill } },
 	{ ControlMask,				XK_Escape,	spawn,		{.v = launcher_menu } },
 	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = default_terminal } },
-	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
+//	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
+	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{.v = stopx } },
 	{ MODKEY|ShiftMask,			XK_b,		togglebar,	{0} },
 	{ ControlMask,				XK_q,		killclient,	{0} },
 

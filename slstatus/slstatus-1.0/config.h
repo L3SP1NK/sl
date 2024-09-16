@@ -69,9 +69,8 @@ static const struct arg args[] = {
 
 //	{ run_command, "pow:%sW ",	"sudo powermon", },
 
-	{ cpu_perc,	" cpu:%s%%",	NULL },
-	{ ram_perc,	" mem:%s%%",	NULL },
-
+//	{ cpu_perc,	" cpu:%s%%",	NULL },
+//	{ ram_perc,	" mem:%s%%",	NULL },
 
 	{ datetime,	"  %s  ",	"%A %-e %B, %-k:%M" },
 

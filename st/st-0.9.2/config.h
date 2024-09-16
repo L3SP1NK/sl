@@ -6,8 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "RobotoMono Nerd Font Mono:pixelsize=18:antialias=true:hintstyle:1:hinting=true:autohint=true:rgba=rgba";
-//static char *font = "sf mono:pixelsize=18:antialias=true:autohint=true:style=regular";
+//static char *font = "RobotoMono Nerd Font Mono:pixelsize=18:antialias=true:hintstyle:1:hinting=true:autohint=true:rgba=rgba";
+static char *font = "sf mono:pixelsize=18:antialias=true:autohint=true:style=regular";
 //static char *font = "firacode nerd font propo:pixelsize=18:antialias=true:autohint=true:style=retina";
 static int borderpx = 8;
 

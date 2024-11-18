@@ -13,8 +13,8 @@ static const unsigned int systrayspacing	= 0;	/* systray spacing */
 static const int systraypinningfailfirst	= 1;	/* 1: if pinning fails, systray on the first monitor, False: systray on the last monitor*/
 static const int showsystray				= 1;	/* 0 means no systray */
 
-static const char *fonts[]		= { "sf pro rounded:size=13:style:medium" };
-static const char dmenufont[]	= "sf pro rounded:size=13:style:medium";
+static const char *fonts[]		= { "sf pro rounded:size=13:style:semibold" };
+static const char dmenufont[]	= "sf pro rounded:size=13:style:semibold";
 
 #include <X11/XF86keysym.h>
 

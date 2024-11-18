@@ -8,7 +8,7 @@
 
 //static char *font = "RobotoMono Nerd Font Mono:pixelsize=16:antialias=true:hintstyle:1:hinting=true:autohint=true:rgba=rgba";
 //static char *font = "sf mono:pixelsize=16:antialias=true:autohint=true:style=regular";
-//static char *font = "commit mono nerd font mono:pixelsize=18:antialias=true:autohint=true:style=regular";
+//static char *font = "commit mono nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "jetbrains mono nerd font propo:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "caskaydiacove nerd font mono:pixelsize=18:antialias=true:autohint=true:style=regular";
 //static char *font = "menlo nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
@@ -102,7 +102,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {

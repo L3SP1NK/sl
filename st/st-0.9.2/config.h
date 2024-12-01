@@ -10,11 +10,12 @@
 //static char *font = "sf mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "commit mono nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "jetbrains mono nerd font propo:pixelsize=16:antialias=true:autohint=true:style=regular";
+//static char *font = "0xProto nerd font mono:pixelsize=20:antialias=true:autohint=true:style=regular";
 //static char *font = "caskaydiacove nerd font mono:pixelsize=18:antialias=true:autohint=true:style=regular";
 //static char *font = "menlo nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "terminess nerd font mono:pixelsize=20:antialias=true:autohint=true:style=regular";
 static char *font = "firacode nerd font propo:pixelsize=16:antialias=true:autohint=true:style=retina";
-static int borderpx = 8;
+static int borderpx = 4;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -102,7 +103,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.9;
+float alpha = 1;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -135,7 +136,7 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 	"white", /* default foreground colour */
-	"black", /* default background colour */
+	"#191919", /* default background colour */
 };
 
 

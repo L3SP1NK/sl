@@ -15,7 +15,7 @@
 //static char *font = "menlo nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "terminess nerd font mono:pixelsize=20:antialias=true:autohint=true:style=regular";
 static char *font = "firacode nerd font propo:pixelsize=16:antialias=true:autohint=true:style=retina";
-static int borderpx = 4;
+static int borderpx = 12;
 
 /*
  * What program is execed by st depends of these precedence rules:

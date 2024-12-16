@@ -22,6 +22,6 @@ static const char *brightness_down[]	= { "brightnessctl", "set", "10%-", NULL };
 
 
 /* Volume Control */
-static const char *volume_up[]			= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+2%", NULL };
-static const char *volume_down[]		= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-2%", NULL };
+static const char *volume_up[]			= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *volume_down[]		= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *volume_mute[]		= { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };

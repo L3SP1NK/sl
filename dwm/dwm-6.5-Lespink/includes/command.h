@@ -12,7 +12,8 @@ static const char *stopx[]				= { "kill" "-9" "$(pidof Xorg)", NULL };
 /* Special Functions */
 static const char *calendar[]			= { "xterm" "-e" "calcurse", NULL } ;
 static const char *calculator[]  		= { "mate-calc", NULL };
-static const char *default_mail[]		= { "exo-open" "--launch" "MailReader" "%u", NULL };
+//static const char *default_mail[]		= { "exo-open" "--launch" "MailReader" "%u", NULL };
+static const char *default_mail[]		= { "thunderbird", NULL };
 static const char *default_browser[]	= { "x-www-browser", NULL };
 static const char *desktop_appmenu[]	= { "xrootmenu", NULL };
 

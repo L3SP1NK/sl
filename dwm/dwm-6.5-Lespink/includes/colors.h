@@ -1,13 +1,13 @@
 /* Colors */
 
-static const char fg_color[]		= "Gray";
-static const char fg_color_sel[]	= "White";
+static const char fg_color[]		= "grey";
+static const char fg_color_sel[]	= "white";
 
-static const char bg_color[]		= "Black";
-static const char bg_color_sel[]	= "Black";
+static const char bg_color[]		= "black";
+static const char bg_color_sel[]	= "black";
 
-static const char br_color[]		= "#474747";
-static const char br_color_sel[]	= "#ffffff";
+static const char br_color[]		= "black";
+static const char br_color_sel[]	= "white";
 
 static const char *colors[][3]	  = {
 	 /*				  fg			bg		 		border		*/

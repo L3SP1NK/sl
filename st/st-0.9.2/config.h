@@ -9,12 +9,12 @@
 //static char *font = "RobotoMono Nerd Font Mono:pixelsize=16:antialias=true:hintstyle:1:hinting=true:autohint=true:rgba=rgba";
 //static char *font = "sf mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "commit mono nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
-//static char *font = "jetbrains mono nerd font propo:pixelsize=16:antialias=true:autohint=true:style=regular";
+static char *font = "jetbrains mono nerd font propo:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "0xProto nerd font mono:pixelsize=20:antialias=true:autohint=true:style=regular";
 //static char *font = "caskaydiacove nerd font mono:pixelsize=18:antialias=true:autohint=true:style=regular";
 //static char *font = "menlo nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "terminess nerd font mono:pixelsize=20:antialias=true:autohint=true:style=regular";
-static char *font = "firacode nerd font propo:pixelsize=16:antialias=true:autohint=true:style=retina";
+//static char *font = "firacode nerd font propo:pixelsize=16:antialias=true:autohint=true:style=retina";
 static int borderpx = 6;
 
 /*

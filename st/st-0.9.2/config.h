@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "CodeNewRoman nerd font mono:pixelsize=18:antialias=true:autohint=true:style=regular";
+static char *font = "Jetbrainsmono nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 static int borderpx = 6;
 
 /*
@@ -111,12 +111,12 @@ static const char *colorname[] = {
 
 	/* 8 bold colors */
 	[8] = "snow4",
-	[9] = "deeppink",
-	[10] = "springgreen",
-	[11] = "gold",
-	[12] = "dodgerblue",
-	[13] = "magenta",
-	[14] = "cyan",
+	[9] = "tomato",
+	[10] = "lawngreen",
+	[11] = "goldenrod1",
+	[12] = "cornflowerblue",
+	[13] = "orchid",
+	[14] = "aquamarine",
 	[15] = "white",
 
 	/* special colors */
@@ -128,8 +128,8 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 	"white", /* default foreground colour */
-//	"#171717", /* default background colour */
-	"#000000", /* default background colour */
+	"#171717", /* default background colour */
+//	"#000000", /* default background colour */
 };
 
 

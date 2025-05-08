@@ -1,6 +1,6 @@
 /* Colors */
 
-static const char fg_color[]		= "grey";
+static const char fg_color[]		= "darkgrey";
 static const char fg_color_sel[]	= "white";
 
 static const char bg_color[]		= "black";

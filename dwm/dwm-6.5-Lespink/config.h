@@ -11,10 +11,10 @@ static const unsigned int systraypinning	= 0;	/* 0: sloppy systray follows selec
 static const unsigned int systrayonleft		= 1;	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing	= 0;	/* systray spacing */
 static const int systraypinningfailfirst	= 1;	/* 1: if pinning fails, systray on the first monitor, False: systray on the last monitor*/
-static const int showsystray				= 0;	/* 0 means no systray */
+static const int showsystray				= 1;	/* 0 means no systray */
 
-static const char *fonts[]		= { "samsung sharp sans:size=13:style:bold" };
-static const char dmenufont[]	= "samsung sharp sans:size=13:style:bold";
+static const char *fonts[]		= { "rubik semibold:size=14:style:bold" };
+static const char dmenufont[]	= "rubik semibold:size=14:style:bold";
 
 #include <X11/XF86keysym.h>
 #include "./includes/colors.h"

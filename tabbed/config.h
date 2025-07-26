@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]		= "monospace:size=9";
-static const char* normbgcolor  = "#222222";
-static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#555555";
-static const char* selfgcolor   = "#ffffff";
-static const char* urgbgcolor   = "#111111";
-static const char* urgfgcolor   = "#cc0000";
+static const char font[]		= "roboto:size=14";
+static const char* normbgcolor  = "black";
+static const char* normfgcolor  = "grey";
+static const char* selbgcolor   = "white";
+static const char* selfgcolor   = "black";
+static const char* urgbgcolor   = "red";
+static const char* urgfgcolor   = "white";
 static const char before[]	  = "<";
 static const char after[]	   = ">";
 static const char titletrim[]   = "...";
@@ -20,8 +20,9 @@ static	   Bool urgentswitch  = False;
  * then the current position is changed + newposition. If npisrelative
  * is False, then newposition is an absolute position.
  */
-static int  newposition   = 0;
-static Bool npisrelative  = False;
+
+static int  newposition   = 1;
+static Bool npisrelative  = True;
 
 #define SETPROP(p) { \
 		.v = (char *[]){ "/bin/sh", "-c", \
@@ -36,14 +37,13 @@ static Bool npisrelative  = False;
 #define MODKEY ControlMask
 static Key keys[] = {
 	/* modifier			 key		function	 argument */
-	{ MODKEY|ShiftMask,	 XK_Return, focusonce,   { 0 } },
-	{ MODKEY|ShiftMask,	 XK_Return, spawn,	   { 0 } },
+//	{ MODKEY,			   XK_t,	  focusonce,   { 0 } },
+	{ MODKEY,			   XK_t,	  spawn,	   { 0 } },
 
-	{ MODKEY|ShiftMask,	 XK_l,	  rotate,	  { .i = +1 } },
-	{ MODKEY|ShiftMask,	 XK_h,	  rotate,	  { .i = -1 } },
-	{ MODKEY|ShiftMask,	 XK_j,	  movetab,	 { .i = -1 } },
-	{ MODKEY|ShiftMask,	 XK_k,	  movetab,	 { .i = +1 } },
-	{ MODKEY,			   XK_Tab,	rotate,	  { .i = 0 } },
+	{ MODKEY,				XK_Page_Up,		rotate,	 { .i = -1 } },
+	{ MODKEY,				XK_Page_Down,	rotate,	 { .i = +1 } },
+	{ MODKEY,				XK_Tab,			rotate,	  { .i = +1 } },
+	{ MODKEY|ShiftMask,		XK_Tab,			rotate,	  { .i = -1 } },
 
 	{ MODKEY,			   XK_grave,  spawn,	   SETPROP("_TABBED_SELECT_TAB") },
 	{ MODKEY,			   XK_1,	  move,		{ .i = 0 } },
@@ -57,7 +57,7 @@ static Key keys[] = {
 	{ MODKEY,			   XK_9,	  move,		{ .i = 8 } },
 	{ MODKEY,			   XK_0,	  move,		{ .i = 9 } },
 
-	{ MODKEY,			   XK_q,	  killclient,  { 0 } },
+	{ MODKEY,			   XK_w,	  killclient,  { 0 } },
 
 	{ MODKEY,			   XK_u,	  focusurgent, { 0 } },
 	{ MODKEY|ShiftMask,	 XK_u,	  toggle,	  { .v = (void*) &urgentswitch } },

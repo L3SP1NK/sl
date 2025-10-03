@@ -1,5 +1,5 @@
 # dwm version
-VERSION = 6.5-Lespink
+VERSION = 6.6-Lespink
 
 # Customize below to fit your system
 

@@ -7,7 +7,8 @@
  */
 
 //static char *font = "Jetbrainsmono nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
-static char *font = "FiraCode Nerd Font:pixelsize=16:antialias=true:autohint=true:style=regular";
+//static char *font = "FiraCode Nerd Font:pixelsize=16:antialias=true:autohint=true:style=regular";
+static char *font = "sf mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 static int borderpx = 6;
 
 /*

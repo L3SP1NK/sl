@@ -13,8 +13,8 @@ static const unsigned int systrayspacing	= 0;	/* systray spacing */
 static const int systraypinningfailfirst	= 0;	/* 1: if pinning fails, systray on the first monitor, False: systray on the last monitor*/
 static const int showsystray				= 1;	/* 0 means no systray */
 
-static const char *fonts[]		= { "arimo nerd font:size=14:style:semibold" };
-static const char dmenufont[]	= "arimo nerd font:size=14:style:semibold";
+static const char *fonts[]		= { "arimo nerd font:size=13:style:semibold" };
+static const char dmenufont[]	= "arimo nerd font:size=13:style:semibold";
 
 #include <X11/XF86keysym.h>
 #include "./includes/colors.h"

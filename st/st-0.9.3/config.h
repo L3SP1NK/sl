@@ -6,10 +6,10 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "Jetbrainsmono nerd font mono:pixelsize=16:antialias=true:autohint=true:style=regular";
+static char *font = "Jetbrainsmono nerd font mono:pixelsize=15:antialias=true:autohint=true:style=regular";
 //static char *font = "FiraCode Nerd Font:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "robotomono Nerd Font:pixelsize=16:antialias=true:autohint=true:style=regular";
-static int borderpx = 12;
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:

@@ -17,8 +17,11 @@ static const int refreshrate = 60;
 
 static const char dmenufont[]	= "fixed";
 static const char *fonts[] = {
-	"*-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*",
-	"Roboto:size=13:style:bold"
+//	"RobotoMono Nerd Font Mono:size=13:antialias=true:autohint=true"
+//	"Arimo Nerd Font:size=13:antialias=true:autohint=true"
+	"Roboto:size=13:style:medium:antialias=true:autohint=true",
+//	"Font Droid Fallback:size=10:antialias=true:autohint=true",
+//	"Noto Color Emoji:size=10:antialias=true:autohint=true"
 };
 
 

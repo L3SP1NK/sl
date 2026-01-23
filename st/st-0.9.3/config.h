@@ -113,12 +113,12 @@ static const char *colorname[] = {
 
 	/* 8 bold colors */
 	[8] = "snow4",
-	[9] = "tomato",
-	[10] = "lawngreen",
-	[11] = "goldenrod1",
-	[12] = "cornflowerblue",
-	[13] = "orchid",
-	[14] = "aquamarine",
+	[9] = "DeepPink",
+	[10] = "Chartreuse",
+	[11] = "Gold",
+	[12] = "DodgerBlue",
+	[13] = "Magenta",
+	[14] = "skyblue",
 	[15] = "white",
 
 	/* special colors */

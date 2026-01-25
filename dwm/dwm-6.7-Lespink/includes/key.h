@@ -33,8 +33,8 @@ static Key keys[] = {
 	{ Mod1Mask,					XK_Tab,		focusstack,		{.i = +1 } },
 	{ Mod1Mask|ShiftMask,		XK_Tab,		focusstack,		{.i = -1 } },
 
-	{ MODKEY,					XK_End,		focusmon,		{.i = -1 } },
-	{ MODKEY,					XK_Home,	focusmon,		{.i = +1 } },
+	{ MODKEY,					XK_Home,	focusmon,		{.i = -1 } },
+	{ MODKEY,					XK_End,		focusmon,		{.i = +1 } },
 
 	{ MODKEY,					XK_Left,	setmfact,		{.f = -0.05} },
 	{ MODKEY,					XK_Right,	setmfact,		{.f = +0.05} },
@@ -65,8 +65,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,			XK_agrave,		tag,	{.ui = ~0 } },
 
 	/* Send window to monitor X */
-	{ MODKEY|ShiftMask,			XK_End,			tagmon,	{.i = -1 } },
-	{ MODKEY|ShiftMask,			XK_Home,		tagmon,	{.i = +1 } },
+	{ MODKEY|ShiftMask,			XK_Home,		tagmon,	{.i = -1 } },
+	{ MODKEY|ShiftMask,			XK_End,			tagmon,	{.i = +1 } },
 
 	{ MODKEY|ControlMask,		XK_ampersand,	tag,	{0} },
 	{ MODKEY|ControlMask,		XK_eacute,		tag,	{0} },

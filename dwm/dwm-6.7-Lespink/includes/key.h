@@ -95,7 +95,6 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = default_terminal } },
 	{ ControlMask|Mod1Mask,		XK_d,		spawn,		{.v = change_background } },
 	{ Mod1Mask,					XK_f,		spawn,		{.v = toggle_fullscreen } },
-	{ 0,						XK_Print,	spawn,		{.v = screenshot } },
 	{ ControlMask|Mod1Mask,		XK_BackSpace,		spawn,		{.v = toggle_compositor } },
 	{ MODKEY,					XK_e,		spawn,		{.v = default_filemgr } },
 	{ MODKEY,					XK_v,		spawn,		{.v = clipv } },

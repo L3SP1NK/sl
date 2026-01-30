@@ -33,7 +33,6 @@ static const char *toggle_compositor[]	= { "compokill", NULL };
 static const char *emoji_select[]		= { "emoji_select", NULL };
 static const char *toggle_fullscreen[]	= { "fullscreen", NULL };
 static const char *change_background[]	= { "randombg", NULL };
-static const char *screenshot[]	= { "compokill;" "xfce4-screenshooter" "-r" "-c", NULL };
 
 /* Brightness Control */
 static const char *brightness_up[]		= { "brightnessctl", "set", "10%+", NULL };

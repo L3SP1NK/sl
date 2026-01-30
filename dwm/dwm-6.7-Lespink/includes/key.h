@@ -88,12 +88,23 @@ static Key keys[] = {
 	TAGKEYS(	XK_underscore,	7)
 	TAGKEYS(	XK_ccedilla,	8)
 
-	/* Actions */
+	/* Custom Actions */
 	{ ControlMask|Mod1Mask,		XK_q,		spawn,		{.v = select_kill } },
 	{ ControlMask,				XK_Escape,	spawn,		{.v = launcher_menu } },
+	{ MODKEY,					XK_Tab,		spawn,		{.v = list_window } },
 	{ ControlMask|Mod1Mask,		XK_t,		spawn,		{.v = default_terminal } },
-//	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
-	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{.v = stopx } },
+	{ ControlMask|Mod1Mask,		XK_d,		spawn,		{.v = change_background } },
+	{ Mod1Mask,					XK_f,		spawn,		{.v = toggle_fullscreen } },
+	{ 0,						XK_Print,	spawn,		{.v = screenshot } },
+	{ ControlMask|Mod1Mask,		XK_BackSpace,		spawn,		{.v = toggle_compositor } },
+	{ MODKEY,					XK_e,		spawn,		{.v = default_filemgr } },
+	{ MODKEY,					XK_v,		spawn,		{.v = clipv } },
+	{ MODKEY,					XK_comma,	spawn,		{.v = emoji_select } },
+	{ MODKEY,					XK_o,		spawn,		{.v = ocr } },
+	{ MODKEY,					XK_s,		spawn,		{.v = sotw } },
+	{ MODKEY,					XK_t,		spawn,		{.v = prompt_translate } },
+	{ MODKEY,					XK_i,		spawn,		{.v = talk } },
+	{ MODKEY|ShiftMask,			XK_Escape,	quit,		{0} },
 	{ MODKEY|ShiftMask,			XK_b,		togglebar,	{0} },
 	{ ControlMask,				XK_q,		killclient,	{0} },
 

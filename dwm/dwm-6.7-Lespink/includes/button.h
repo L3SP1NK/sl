@@ -3,7 +3,6 @@
 
 static Button buttons[] = {
 	/* click				event mask	button			function		argument */
-	{ ClkStatusText,		0,			Button1,		spawn,			{.v = calendar } },
 	{ ClkRootWin,			0,			Button3,		spawn,			{.v = desktop_appmenu } },
 	{ ClkClientWin,			MODKEY,		Button1,		movemouse,		{0} },
 	{ ClkClientWin,			MODKEY,		Button3,		resizemouse,	{0} },

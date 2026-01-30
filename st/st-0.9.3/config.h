@@ -7,7 +7,9 @@
  */
 
 //static char *font = "Jetbrainsmono nerd font mono:pixelsize=15:antialias=true:autohint=true:style=regular";
-static char *font = "FiraCode Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular";
+//static char *font = "FiraCode Nerd Font:pixelsize=14:antialias=true:autohint=true:style=retina";
+//static char *font = "FiraCode Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular";
+static char *font = "Google sans code:pixelsize=16:antialias=true:autohint=true:style=regular";
 //static char *font = "robotomono Nerd Font:pixelsize=16:antialias=true:autohint=true:style=regular";
 static int borderpx = 8;
 
@@ -63,12 +65,12 @@ static double maxlatency = 33;
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-static unsigned int blinktimeout = 999;
+static unsigned int blinktimeout = 1000;
 
 /*
  * thickness of underline and bar cursors
  */
-static unsigned int cursorthickness = 2;
+static unsigned int cursorthickness = 4;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -126,12 +128,11 @@ static const char *colorname[] = {
 	[257] = "white", /* foreground */
   	[255] = 0,
 
-//	/* more colors can be added after 255 to use with DefaultXX */
+	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
 	"white", /* default foreground colour */
 	"#000000", /* default background colour */
-//	"#121212", /* default background colour */
 };
 
 
@@ -151,7 +152,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 6;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers

@@ -1,0 +1,28 @@
+#!/bin/bash
+set -euo pipefail
+
+killTerm() {
+
+	if pidof st>/dev/null; then
+		killall st
+	fi
+
+}
+
+compile() {
+
+	MAKE_ARGS='-Wnowarn'
+
+	make clean
+	make ${MAKE_ARGS}
+	make install
+	make dist
+
+	echo -e '\e[32mCompilation Done!\e[0m'
+
+	echo 'Press [ENTER] to stop all terminal...'
+	read && killTerm
+
+}
+
+compile

@@ -18,7 +18,10 @@ static const int showsystray				= 1;	/* 0 means no systray */
 
 static const char dmenufont[]	= "fixed";
 
-static const char *fonts[] = { "Google Sans 17pt:size=13:style:Medium:antialias=true:autohint=true" };
+static const char *fonts[] = {
+//	"Google Sans 17pt:size=13:style:Medium:antialias=true:autohint=true"
+	"sf pro display:size=13:style:Medium:antialias=true:autohint=true"
+	};
 
 
 #include <X11/XF86keysym.h>

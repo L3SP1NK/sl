@@ -40,10 +40,7 @@ static const char *brightness_down[]	= { "brightnessctl", "set", "10%-", NULL };
 
 
 /* Volume Control */
-static const char *volume_up[]			= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
-static const char *volume_down[]		= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
-static const char *volume_mute[]		= { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
-
-//TODO NOTIFIER
-//static const char *notif[] = { "", NULL };
+static const char *volume_up[]			= { "amixer", "set", "Master", "10%+", NULL };
+static const char *volume_down[]		= { "amixer", "set", "Master", "10%-", NULL };
+static const char *volume_mute[]		= { "amixer", "-q", "set", "Master", "toggle", NULL };
 

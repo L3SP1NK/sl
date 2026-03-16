@@ -20,7 +20,7 @@ static const char dmenufont[]	= "fixed";
 
 static const char *fonts[] = {
 //	"Google Sans 17pt:size=13:style:Medium:antialias=true:autohint=true"
-	"sf pro display:size=13:style:Medium:antialias=true:autohint=true"
+	"sf pro text:size=13:style:Medium:antialias=true:autohint=true"
 	};
 
 

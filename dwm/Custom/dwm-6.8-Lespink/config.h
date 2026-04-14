@@ -19,8 +19,8 @@ static const int showsystray				= 1;	/* 0 means no systray */
 static const char dmenufont[]	= "fixed";
 
 static const char *fonts[] = {
-//	"Google Sans 17pt:size=13:style:Medium:antialias=true:autohint=true"
-	"sf pro text:size=13:style:Medium:antialias=true:autohint=true"
+	"SF pro text:size=14:style:black:antialias=true:autohint=true"
+//	"rubik:size=14:style:semibold:antialias=true:autohint=true"
 	};
 
 

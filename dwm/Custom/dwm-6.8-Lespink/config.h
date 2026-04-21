@@ -19,8 +19,8 @@ static const int showsystray				= 1;	/* 0 means no systray */
 static const char dmenufont[]	= "fixed";
 
 static const char *fonts[] = {
-//	"SF pro text:size=14:style:black:antialias=true:autohint=true"
-	"Sora:size=14:style:semibold:antialias=true:autohint=true"
+	"SF pro text:size=14:style:black:antialias=true:autohint=true"
+//	"Sora:size=14:style:semibold:antialias=true:autohint=true"
 	};
 
 

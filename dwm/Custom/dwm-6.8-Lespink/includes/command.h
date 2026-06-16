@@ -35,12 +35,16 @@ static const char *toggle_fullscreen[]	= { "fullscreen", NULL };
 static const char *change_background[]	= { "randombg", NULL };
 
 /* Brightness Control */
-static const char *brightness_up[]		= { "brightnessctl", "set", "10%+", NULL };
-static const char *brightness_down[]	= { "brightnessctl", "set", "10%-", NULL };
+//static const char *brightness_up[]		= { "brightnessctl", "set", "10%+", NULL };
+//static const char *brightness_down[]	= { "brightnessctl", "set", "10%-", NULL };
+static const char *brightness_up[]		= { "brightctl", "+10%", NULL };
+static const char *brightness_down[]	= { "brightctl", "-10%", NULL };
+
 
 
 /* Volume Control */
-static const char *volume_up[]			= { "amixer", "set", "Master", "5%+", NULL };
-static const char *volume_down[]		= { "amixer", "set", "Master", "5%-", NULL };
-static const char *volume_mute[]		= { "amixer", "-q", "set", "Master", "toggle", NULL };
+
+static const char *volume_mute[]			= { "volctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+static const char *volume_up[]			= { "volctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
+static const char *volume_down[]			= { "volctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
 

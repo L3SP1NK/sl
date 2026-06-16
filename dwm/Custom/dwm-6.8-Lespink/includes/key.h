@@ -21,6 +21,7 @@ static Key keys[] = {
 	{ 0,	XF86XK_HomePage,			spawn, {.v = desktop_appmenu } },
 
 	/* Brightness */
+//			XF86MonBrightnessUp
 	{ 0,	XF86XK_MonBrightnessDown,	spawn, {.v = brightness_down } },
 	{ 0,	XF86XK_MonBrightnessUp,		spawn, {.v = brightness_up } },
 

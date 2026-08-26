@@ -13,13 +13,15 @@ static const unsigned int systraypinning	= 0;	/* 0: sloppy systray follows selec
 static const unsigned int systrayonleft		= 1;	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing	= 0;	/* systray spacing */
 static const int systraypinningfailfirst	= 0;	/* 1: if pinning fails, systray on the first monitor, False: systray on the last monitor*/
-static const int showsystray				= 1;	/* 0 means no systray */
+static const int showsystray				= 0;	/* 0 means no systray */
 
 
 static const char dmenufont[]	= "fixed";
 
 static const char *fonts[] = {
-	"SF Pro Text:size=14:style:SemiBold:antialias=true:autohint=true"
+	"Symbols Nerd Font:size=18:style:Semibold:antialias=true:autohint=true",
+	"SF Pro Text:size=16:style:Bold:antialias=true:autohint=true"
+
 	};
 
 

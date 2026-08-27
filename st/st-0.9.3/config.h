@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "FiraCode Nerd Font:pixelsize=18:antialias=true:autohint=true:style=retina";
+static char *font = "FiraCode Nerd Font:pixelsize=22:antialias=true:autohint=true:style=retina";
 //static char *font = "Caskaydia Cove Nerd Font Mono:pixelsize=16:antialias=true:autohint=true:style=regular";
 static int borderpx = 8;
 

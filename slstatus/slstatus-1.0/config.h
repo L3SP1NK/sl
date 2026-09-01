@@ -66,9 +66,9 @@ static const char unknown_str[] = "?";
 static const struct arg args[] = {
 
 	/* function		format	  	   	argument */
-	{ run_command, " 󰍛:%s ", "awk '{print $1}' /proc/loadavg", },
+	{ run_command, " 󰍛 %s ", "awk '{print $1}' /proc/loadavg", },
 //	{ cpu_perc,	"󰍛:%02s%%",	NULL },
-	{ ram_perc,	" :%s%%  ",	NULL },
+	{ ram_perc,	"  %s%%  ",	NULL },
 
 //	{ datetime,	"  %s  ",	"%A %-e %B, %-k:%M" },
 	{ run_command, " %s",	"clockicon", },
